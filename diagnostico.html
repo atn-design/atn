@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnóstico Vitalidad 360 | Team Top Nutrition</title>
+  <meta name="description" content="Responde 6 preguntas rápidas y descubre cuál de los 3 programas de Team Top Nutrition es tu punto de partida ideal.">
+  <link rel="icon" href="assets/img/logo-atn.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#ECEF00',
+              hoverYellow: '#D4D700',
+              dark: '#0B0B0D',
+              cardBg: '#16161A',
+              cardBorder: '#27272E'
+            }
+          },
+          fontFamily: {
+            title: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 glass-card border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="logo-chip w-11 h-11 shrink-0">
+          <img src="assets/img/logo-atn.jpg" alt="Logo Team Top Nutrition">
+        </span>
+        <span class="font-title text-2xl sm:text-3xl tracking-wider text-brand-yellow">TEAM TOP NUTRITION</span>
+      </a>
+      <a href="index.html" class="hidden sm:inline-flex items-center gap-2 bg-brand-yellow text-black font-extrabold uppercase px-6 py-2.5 rounded-full hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-lg shadow-brand-yellow/20 text-sm">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Volver al Inicio</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 px-4 sm:px-6 relative overflow-hidden min-h-screen flex items-center">
+    <div class="absolute inset-0 bg-grid-pattern pointer-events-none"></div>
+
+    <div class="max-w-2xl mx-auto relative z-10 w-full">
+      <div class="text-center mb-6">
+        <span class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-3">Diagnóstico Vitalidad 360</span>
+        <p class="text-gray-400 text-xs sm:text-sm">Responde con honestidad — no hay respuestas correctas, solo tu punto de partida real.</p>
+      </div>
+
+      <!-- Barra de progreso -->
+      <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden mb-8">
+        <div id="progress-bar" class="h-full bg-brand-yellow transition-all duration-300" style="width: 14%;"></div>
+      </div>
+
+      <!-- Card del quiz -->
+      <div id="quiz-card" class="glass-card rounded-3xl border border-brand-yellow/20 p-8 sm:p-10">
+        <div id="quiz-step"></div>
+      </div>
+
+      <!-- Resultado especial (casos que requieren revisión personal) -->
+      <div id="special-case" class="hidden glass-card rounded-3xl border border-brand-yellow/30 p-8 sm:p-10 text-center">
+        <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+          <i class="fa-solid fa-heart-pulse"></i>
+        </div>
+        <h2 class="font-title text-2xl sm:text-3xl uppercase leading-tight">Tu caso merece una mirada personal</h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+          Cuando hay una condición de salud de por medio, ningún puntaje automático debería decidir tu plan.
+          Escríbele directo a Andrea y ella lo revisa contigo antes de recomendarte nada.
+        </p>
+        <a href="#" data-wa-message="Hola Andrea, hice el diagnóstico y marqué que tengo una condición de salud (embarazo/alergia/enfermedad) que quiero comentarte antes de elegir un plan." target="_blank"
+           class="mt-6 inline-flex items-center gap-3 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20">
+          <span>Escribirle a Andrea</span>
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="#" data-wa-message="Hola Andrea, tengo una duda sobre el diagnóstico." target="_blank" class="wa-float fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center text-2xl" aria-label="Escribir por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/diagnostico.js"></script>
+</body>
+</html>

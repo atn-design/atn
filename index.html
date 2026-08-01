@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Top Nutrition | Andrea — Nutrición Funcional, Hábitos y Recomposición Corporal</title>
+  <meta name="description" content="Programas de nutrición funcional y entrenamiento adaptado para desinflamarte, perder grasa y tonificar sin dietas extremas. Descubre tu punto de partida ideal con el test gratuito de Andrea.">
+  <link rel="icon" href="assets/img/logo-atn.jpg">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Team Top Nutrition | Andrea">
+  <meta property="og:description" content="Ciencia, disciplina y hábitos sostenibles. Sin dietas mágicas, sin pasar hambre. Descubre tu punto de partida con el test gratuito.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/img/andrea-squat.jpg">
+  <meta property="og:locale" content="es_LA">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#ECEF00',
+              hoverYellow: '#D4D700',
+              dark: '#0B0B0D',
+              cardBg: '#16161A',
+              cardBorder: '#27272E'
+            }
+          },
+          fontFamily: {
+            title: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Andrea",
+    "jobTitle": "Coach Nutricional y Deportiva",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Team Top Nutrition"
+    },
+    "description": "Coach de nutrición funcional y entrenamiento, especializada en reseteo metabólico, pérdida de grasa y recomposición corporal para mujeres y hombres reales."
+  }
+  </script>
+</head>
+
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full z-50 glass-card border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="logo-chip w-11 h-11 shrink-0">
+          <img src="assets/img/logo-atn.jpg" alt="Logo Team Top Nutrition">
+        </span>
+        <span class="font-title text-2xl sm:text-3xl tracking-wider text-brand-yellow">TEAM TOP NUTRITION</span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold tracking-wider uppercase text-gray-300">
+        <a href="#experiencia" class="hover:text-brand-yellow transition-colors">Sobre Mí</a>
+        <a href="#programas" class="hover:text-brand-yellow transition-colors">Programas</a>
+        <a href="#diagnostico-cta" class="hover:text-brand-yellow transition-colors">Diagnóstico</a>
+        <a href="#testimonios" class="hover:text-brand-yellow transition-colors">Resultados</a>
+        <a href="#faq" class="hover:text-brand-yellow transition-colors">FAQ</a>
+      </div>
+
+      <a href="#programas" class="hidden sm:inline-flex items-center gap-2 bg-brand-yellow text-black font-extrabold uppercase px-6 py-2.5 rounded-full hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-lg shadow-brand-yellow/20 text-sm">
+        <span>Empieza Hoy</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+
+      <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-yellow" aria-label="Abrir menú">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-brand-cardBg border-b border-gray-800 px-6 py-6 space-y-4 font-semibold text-center uppercase tracking-wide">
+      <a href="#experiencia" class="block py-2 text-gray-200 hover:text-brand-yellow">Sobre Mí</a>
+      <a href="#programas" class="block py-2 text-gray-200 hover:text-brand-yellow">Programas</a>
+      <a href="#diagnostico-cta" class="block py-2 text-gray-200 hover:text-brand-yellow">Diagnóstico</a>
+      <a href="#testimonios" class="block py-2 text-gray-200 hover:text-brand-yellow">Resultados</a>
+      <a href="#faq" class="block py-2 text-gray-200 hover:text-brand-yellow">FAQ</a>
+      <a href="#programas" class="block w-full bg-brand-yellow text-black py-3 rounded-full font-extrabold">EMPIEZA HOY</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+    <!-- Video de fondo traslúcido -->
+    <div class="absolute inset-0 z-0">
+      <video autoplay muted loop playsinline poster="assets/img/andrea-squat.jpg" class="w-full h-full object-cover opacity-70">
+        <source src="assets/video/hero-bg.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-black/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-brand-dark"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <div class="inline-flex items-center gap-2 bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-widest mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-yellow animate-ping"></span>
+        Transformación Física &amp; Hábitos Sostenibles
+      </div>
+
+      <h1 class="font-title text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-wide uppercase leading-tight max-w-5xl mx-auto">
+        Construye una versión de ti <span class="text-brand-yellow text-glow">sostenible</span>, que no dependa de tu <span class="underline decoration-brand-yellow decoration-4 underline-offset-8">motivación diaria</span>
+      </h1>
+
+      <p class="mt-6 text-gray-300 text-base sm:text-xl max-w-3xl mx-auto font-medium leading-relaxed">
+        Si eres una mujer y mamá real, con agenda saturada y cero tiempos de sobra. Nada de planes rígidos ni promesas vacías:
+        <strong class="text-brand-yellow font-bold">ciencia, constancia y hábitos que se sostienen</strong>, empezando por el
+        <strong class="text-white">Reset Metabólico</strong>, el primer paso indispensable.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#programas" class="w-full sm:w-auto bg-brand-yellow text-black font-black uppercase text-lg px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:-translate-y-1 shadow-xl shadow-brand-yellow/20 flex items-center justify-center gap-3">
+          <i class="fa-solid fa-bolt"></i>
+          <span>Elegir Mi Plan</span>
+        </a>
+        <a href="#diagnostico-cta" class="w-full sm:w-auto bg-gray-900 border border-gray-700 hover:border-brand-yellow text-gray-200 hover:text-brand-yellow font-bold text-lg px-8 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+          <i class="fa-solid fa-clipboard-question"></i>
+          <span>¿Por dónde empiezo?</span>
+        </a>
+      </div>
+
+      <!-- Pilares (reemplaza cifras no verificadas por los pilares reales del método) -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-800 max-w-4xl mx-auto">
+        <div>
+          <i class="fa-solid fa-leaf text-brand-yellow text-xl"></i>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-2">Nutrición Funcional</div>
+        </div>
+        <div>
+          <i class="fa-solid fa-dumbbell text-brand-yellow text-xl"></i>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-2">Entrenamiento Adaptado</div>
+        </div>
+        <div>
+          <i class="fa-solid fa-arrows-spin text-brand-yellow text-xl"></i>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-2">Hábitos Sostenibles</div>
+        </div>
+        <div>
+          <i class="fa-solid fa-flask text-brand-yellow text-xl"></i>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-2">Suplementación Limpia</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECCIÓN SOBRE MÍ / HISTORIA -->
+  <section id="experiencia" class="py-20 relative">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-sm lg:max-w-none rounded-2xl overflow-hidden border-2 border-brand-yellow/30 shadow-2xl hero-photo-frame h-96 sm:h-[480px]">
+            <img src="assets/img/andrea-hero.jpg" alt="Andrea, coach de Team Top Nutrition">
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-6">
+              <span class="bg-brand-yellow text-black font-extrabold text-xs px-3 py-1 rounded-md uppercase">Coach Principal</span>
+              <h3 class="font-title text-4xl mt-2 text-white">ANDREA</h3>
+              <p class="text-xs text-gray-300 font-medium">Nutrición, Entrenamiento & Liderazgo de Hábitos</p>
+            </div>
+          </div>
+          <div class="absolute -bottom-6 -left-6 w-28 h-28 bg-brand-yellow rounded-2xl -z-10 hidden sm:block"></div>
+        </div>
+
+        <div class="lg:col-span-7 space-y-6">
+          <span class="text-brand-yellow font-bold uppercase text-sm tracking-widest">Hola, si llegaste hasta acá, no es casualidad</span>
+          <h2 class="font-title text-4xl sm:text-5xl uppercase leading-none">
+            Soy Andrea, mamá de dos, profesional en nutrición y entrenamiento físico.
+          </h2>
+
+          <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+            He aprendido a construir disciplina en medio de la maternidad, el cansancio y los desafíos de una vida real, no perfecta.
+            Sostengo mi casa sola, sin red de apoyo, y he atravesado además un reto de salud familiar difícil.
+            Aun así, elijo ser <strong class="text-brand-yellow">1% mejor cada día</strong>.
+          </p>
+
+          <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+            Puedes querer cambiar tu cuerpo para verte mejor al espejo, pero cuando cuidas tu alimentación y construyes hábitos sólidos,
+            descubres que la transformación va mucho más allá de lo físico.
+            <span class="text-white font-semibold">Sin magia, sin promesas vacías: únicamente ciencia, experiencia y constancia.</span>
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="flex items-start gap-3 bg-brand-cardBg p-4 rounded-xl border border-gray-800">
+              <i class="fa-solid fa-check-circle text-brand-yellow text-xl mt-1"></i>
+              <div>
+                <h4 class="font-bold text-sm uppercase">Sin Planes Rígidos</h4>
+                <p class="text-xs text-gray-400 mt-1">Lo extremo no se sostiene. Adaptamos el proceso a tu ritmo diario real.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-brand-cardBg p-4 rounded-xl border border-gray-800">
+              <i class="fa-solid fa-globe text-brand-yellow text-xl mt-1"></i>
+              <div>
+                <h4 class="font-bold text-sm uppercase">Comunidad Global</h4>
+                <p class="text-xs text-gray-400 mt-1">Acompañamiento activo y soporte continuo en más de 35 países.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA DEL DIAGNÓSTICO: lleva al quiz nativo de diagnostico.html, resultado instantáneo con el plan ideal -->
+  <section id="diagnostico-cta" class="py-16 bg-brand-cardBg border-y border-gray-800">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="glass-card rounded-3xl border border-brand-yellow/30 p-8 sm:p-10 text-center relative overflow-hidden">
+        <div class="absolute -right-10 -top-10 w-40 h-40 bg-brand-yellow/10 rounded-full blur-3xl"></div>
+        <span class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-4 relative z-10">Test de 2 min</span>
+        <h2 class="font-title text-3xl sm:text-5xl uppercase leading-tight relative z-10">¿No sabes por dónde empezar?</h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed relative z-10">
+          Sé que no tienes tiempo para perder.
+          Sostienes tu hogar, pero ¿quién te sostiene a ti? Tu cuerpo te pide un respiro.
+          Vamos a definir cómo vamos a reducir tu carga inflamatoria hoy.
+        </p>
+        <a href="diagnostico.html"
+           class="mt-8 inline-flex items-center gap-3 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 relative z-10">
+          <span>Sí, merezco estar bien</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN PLANES / PROGRAMAS -->
+  <section id="programas" class="py-20 bg-brand-cardBg/60 relative border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-brand-yellow font-bold uppercase text-sm tracking-widest">Programas Destacados</span>
+        <h2 class="font-title text-4xl sm:text-6xl uppercase mt-2">Nuestros Planes de Transformación</h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Diseñados paso a paso, o combinados para potenciar resultados desde la primera semana.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- CARD 1 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between group">
+          <div class="h-44 overflow-hidden">
+            <img src="assets/img/reset-7d.jpg" alt="Reset Metabólico 7 Días" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-8 flex-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-yellow">Paso 1 · Indispensable</span>
+            <h3 class="font-title text-3xl uppercase mt-1">Reset Metabólico (7 Días)</h3>
+            <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+              Limpia tu sistema digestivo, elimina la inflamación celular y reactiva tu metabolismo para recibir nutrientes al máximo.
+            </p>
+            <ul class="mt-6 space-y-2 text-xs text-gray-400">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Plan nutricional desinflamatorio</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Guía de suplementación inteligente</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Acompañamiento directo por WhatsApp</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="openModal('Reset Metabólico 7 Días')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+              <span>Únete Hoy</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-brand-yellow/50 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between relative group transform lg:-translate-y-2 shadow-xl shadow-brand-yellow/5">
+          <div class="absolute top-3 right-3 z-10 bg-brand-yellow text-black font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">
+            Más Popular
+          </div>
+          <div class="h-44 overflow-hidden">
+            <img src="assets/img/andrea-cutout.jpg" alt="Pérdida de Peso Acelerada" class="w-full h-full object-cover object-top bg-black group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-8 flex-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-yellow">Paso 2 · Reducción</span>
+            <h3 class="font-title text-3xl uppercase mt-1">Pérdida de Peso Acelerada</h3>
+            <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+              Enfocado en la quema eficiente de grasa abdominal manteniendo tu masa muscular limpia y tus niveles de energía altos.
+            </p>
+            <ul class="mt-6 space-y-2 text-xs text-gray-400">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Menú flexible sin pasar hambre</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Rutinas adaptadas a casa o gimnasio</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Control semanal de métricas</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="openModal('Pérdida de Peso Acelerada')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+              <span>Únete Hoy</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between group">
+          <div class="h-44 overflow-hidden">
+            <img src="assets/img/abdomen.jpg" alt="Recomposición Corporal" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
+          </div>
+          <div class="p-8 flex-1">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-yellow">Paso 3 · Tonificación</span>
+            <h3 class="font-title text-3xl uppercase mt-1">Recomposición Corporal</h3>
+            <p class="text-gray-300 text-sm mt-3 leading-relaxed">
+              Sustituye tejido graso por masa muscular firme. La clave definitiva para evitar el efecto rebote para siempre.
+            </p>
+            <ul class="mt-6 space-y-2 text-xs text-gray-400">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Estrategia de macronutrientes</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Guía de tonificación avanzada</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-yellow"></i> Mentoría de mantenimiento permanente</li>
+            </ul>
+          </div>
+          <div class="p-8 pt-0">
+            <button onclick="openModal('Recomposición Corporal')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+              <span>Únete Hoy</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- NUTRICIÓN FUNCIONAL / FUXION -->
+      <div class="mt-16 rounded-3xl border-2 border-brand-yellow relative overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="assets/img/fuxion-logo.jpg" alt="" class="w-full h-full object-cover opacity-25">
+          <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-transparent"></div>
+        </div>
+        <div class="relative z-10 p-8 sm:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-8 space-y-3">
+            <div class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase">Nutrición Funcional</div>
+            <h3 class="font-title text-3xl sm:text-5xl uppercase text-white">Potencia tu plan con <span class="text-brand-yellow">FuXion</span></h3>
+            <p class="text-gray-300 text-sm sm:text-base max-w-xl">
+              Suplementación 100% natural para acompañar tus objetivos — nunca reemplaza tu programa, lo potencia. Visita la tienda oficial de Andrea.
+            </p>
+          </div>
+          <div class="lg:col-span-4 text-center lg:text-right">
+            <a href="https://ifuxion.com/teamtopnutrition/enrollment/products" target="_blank" rel="noopener"
+               class="bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3">
+              <span>Ir a la Tienda</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN TESTIMONIOS / ANTES Y DESPUÉS -->
+  <section id="testimonios" class="py-20 border-t border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+
+      <div class="text-center max-w-3xl mx-auto mb-4">
+        <span class="text-brand-yellow font-bold uppercase text-sm tracking-widest">Historias Reales, Resultados Reales</span>
+        <h2 class="font-title text-4xl sm:text-6xl uppercase mt-2">Antes y Después</h2>
+        <p class="text-gray-400 text-sm sm:text-base mt-2">
+          Personas reales, con vidas reales, que decidieron ser 1% mejor cada día.
+        </p>
+      </div>
+      <p class="text-center text-[11px] text-gray-500 mb-12">Fotos y resultados reales de clientas y clientes de Team Top Nutrition. Los resultados individuales pueden variar según cada persona.</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+          <img src="assets/img/testimonio-1.jpg" alt="Testimonio: de mamá a mamá en forma" class="testimonial-photo">
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+              "Pensé que la maternidad no me dejaría recuperar mi energía. Hoy entreno con la misma fuerza con la que sostengo mi casa."
+            </p>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">De mamá a mamá en forma</div>
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+          <img src="assets/img/testimonio-2.jpg" alt="Testimonio: transformación en 3 meses" class="testimonial-photo">
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+              "Los hombres también buscamos mejorar nuestra condición física y salud, sin restricciones ridículas. -15 kg en 3 meses."
+            </p>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Transformación en 3 meses</div>
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+          <img src="assets/img/testimonio-3.jpg" alt="Testimonio: recomposición corporal" class="testimonial-photo">
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+              "No se trata solo del peso, sino de recuperar la energía y eliminar la fatiga constante. Cero efecto rebote."
+            </p>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Recomposición corporal</div>
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+          <img src="assets/img/testimonio-4.jpg" alt="Testimonio: cambios en 5 días" class="testimonial-photo">
+          <div class="p-5 flex flex-col flex-1">
+            <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+              "Cambios visibles en solo 5 días con el protocolo de desinflamación. No es un detox cualquiera."
+            </p>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Reset en 5 días</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PROTOCOLO GRATIS (plan B): para quien no se inscribió a un programa, que al menos se lleve algo gratis -->
+  <section class="py-16 relative">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="glass-card rounded-3xl border border-brand-yellow/30 p-8 sm:p-10 text-center relative overflow-hidden">
+        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-brand-yellow/10 rounded-full blur-3xl"></div>
+        <span class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-4 relative z-10">100% Gratis · Sin productos</span>
+        <h2 class="font-title text-3xl sm:text-4xl uppercase leading-tight relative z-10">¿Aún no estás lista para un programa completo?</h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-3 max-w-xl mx-auto leading-relaxed relative z-10">
+          Empieza por algo simple: tu <strong class="text-brand-yellow">Protocolo de Desinflamación Express (72h)</strong>, gratis y sin compromiso.
+          Un respiro real para tu cuerpo, revisado personalmente por Andrea.
+        </p>
+        <button onclick="openModal('Protocolo de Desinflamación Express 72h (GRATIS)')"
+                class="mt-8 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3 relative z-10">
+          <span>Quiero mi Protocolo Gratis</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <p class="text-[11px] text-gray-500 mt-3 relative z-10">
+          ¿No se abrió tu ebook? <a href="https://canva.link/uv3gdvzn7nk07n6" target="_blank" rel="noopener" class="text-brand-yellow hover:underline">Descárgalo aquí</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER SUTIL: EQUIPO / OPORTUNIDAD DE NEGOCIO -->
+  <section class="py-10 border-t border-gray-800/60">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <p class="text-gray-400 text-sm">
+        ¿Sientes que además de tu cuerpo, quieres transformar tu economía?
+        <a href="#" data-wa-message="Hola Andrea, vi tu página y me interesa saber más sobre cómo unirme al equipo." class="text-brand-yellow font-semibold hover:underline">Conoce cómo formar parte del equipo</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS FRECUENTES (FAQ) -->
+  <section id="faq" class="py-20 border-t border-gray-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <span class="text-brand-yellow font-bold uppercase text-sm tracking-widest">Respuestas Claras</span>
+        <h2 class="font-title text-4xl sm:text-5xl uppercase mt-2">Preguntas Frecuentes</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+            <span>No tengo tiempo ni con quién dejar a mis hijos, ¿aun así funciona?</span>
+            <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+            Sí. Los programas están diseñados para agendas saturadas: rutinas cortas en casa y un plan de alimentación simple, sin depender de horarios de gimnasio.
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+            <span>¿Necesito gimnasio para realizar los programas?</span>
+            <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+            No. Todos los programas cuentan con alternativas adaptadas tanto para hacer en casa con equipamiento básico como para entrenar en un gimnasio.
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+            <span>¿En qué consiste el Reset Metabólico de 7 Días?</span>
+            <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+            Es un protocolo nutricional intensivo diseñado para desinflamar el organismo y el tracto digestivo, optimizando la asimilación de nutrientes y eliminando la retención de líquidos.
+          </div>
+        </div>
+
+        <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+          <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+            <span>¿Cómo recibo el acceso a mi programa?</span>
+            <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+          </button>
+          <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+            Inmediatamente después de confirmar tu inscripción por WhatsApp, recibirás el acceso directo a tu plan y al acompañamiento personal de Andrea.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-brand-yellow text-black py-10 border-t border-yellow-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center md:text-left pb-8 border-b border-black/10">
+        <div class="font-title text-3xl font-extrabold tracking-wider">TEAM TOP NUTRITION</div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-black/80 mt-1">Ciencia, constancia y hábitos reales.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 text-center sm:text-left">
+        <div>
+          <h4 class="font-title text-2xl uppercase italic mb-3">Redes Sociales</h4>
+          <div class="space-y-2 text-sm font-semibold">
+            <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+              <a href="https://instagram.com/andreatopnutrition" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:underline">
+                <i class="fa-brands fa-instagram"></i> @andreatopnutrition
+              </a>
+              <span class="text-black/40">|</span>
+              <a href="https://instagram.com/teamtopnutrition" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:underline">
+                <i class="fa-brands fa-instagram"></i> @teamtopnutrition
+              </a>
+            </div>
+            <a href="https://www.tiktok.com/@andreatopnutrition" target="_blank" rel="noopener" class="flex items-center justify-center sm:justify-start gap-1.5 hover:underline">
+              <i class="fa-brands fa-tiktok"></i> @andreatopnutrition
+            </a>
+            <a href="https://www.threads.net/@andreatopnutrition" target="_blank" rel="noopener" class="flex items-center justify-center sm:justify-start gap-1.5 hover:underline">
+              <i class="fa-brands fa-threads"></i> @andreatopnutrition
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-title text-2xl uppercase italic mb-3">Correo Electrónico</h4>
+          <a href="mailto:contactoandreatopnutrition@gmail.com" class="flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold hover:underline break-all">
+            <i class="fa-solid fa-envelope"></i> contactoandreatopnutrition@gmail.com
+          </a>
+        </div>
+
+        <div>
+          <h4 class="font-title text-2xl uppercase italic mb-3">Teléfono</h4>
+          <a href="#" data-wa-message="Hola Andrea, quiero más información sobre tus planes." target="_blank" class="flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold hover:underline">
+            <i class="fa-brands fa-whatsapp"></i> (+56) 945 92 5331
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="#" data-wa-message="Hola Andrea, quiero más información sobre tus planes." target="_blank" class="wa-float fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center text-2xl" aria-label="Escribir por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- CHECKOUT MODAL -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-cardBg border border-brand-yellow/40 rounded-2xl max-w-md w-full p-6 relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center">
+        <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 class="font-title text-3xl uppercase">Quiero Inscribirme</h3>
+        <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Nombre Completo</label>
+          <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Correo Electrónico</label>
+          <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">WhatsApp</label>
+          <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+
+        <button type="submit" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
+          Confirmar y Continuar a WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

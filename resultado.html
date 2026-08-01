@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tu Resultado Personalizado | Team Top Nutrition</title>
+  <meta name="description" content="Descubre el programa de Team Top Nutrition que mejor se adapta a tu diagnóstico personalizado.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="assets/img/logo-atn.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              yellow: '#ECEF00',
+              hoverYellow: '#D4D700',
+              dark: '#0B0B0D',
+              cardBg: '#16161A',
+              cardBorder: '#27272E'
+            }
+          },
+          fontFamily: {
+            title: ['"Bebas Neue"', 'sans-serif'],
+            sans: ['"Montserrat"', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-brand-dark text-gray-100 font-sans antialiased selection:bg-brand-yellow selection:text-black">
+
+  <!-- NAVBAR (mismo shell que index.html) -->
+  <nav class="fixed top-0 left-0 w-full z-50 glass-card border-b border-gray-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="logo-chip w-11 h-11 shrink-0">
+          <img src="assets/img/logo-atn.jpg" alt="Logo Team Top Nutrition">
+        </span>
+        <span class="font-title text-2xl sm:text-3xl tracking-wider text-brand-yellow">TEAM TOP NUTRITION</span>
+      </a>
+      <a href="index.html" class="hidden sm:inline-flex items-center gap-2 bg-brand-yellow text-black font-extrabold uppercase px-6 py-2.5 rounded-full hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-lg shadow-brand-yellow/20 text-sm">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Volver al Inicio</span>
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 px-4 sm:px-6 relative overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern pointer-events-none"></div>
+
+    <!-- BLOQUE: resultado con plan reconocido (?plan=reset-7d | perdida-peso | recomposicion) -->
+    <div id="resultado-plan" class="hidden max-w-4xl mx-auto relative z-10">
+      <div class="glass-card rounded-3xl border border-brand-yellow/30 overflow-hidden">
+        <div class="h-56 sm:h-72 overflow-hidden">
+          <img id="resultado-img" src="" alt="" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="p-8 sm:p-10 text-center">
+          <span id="resultado-badge" class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-4"></span>
+          <h1 id="resultado-title" class="font-title text-4xl sm:text-6xl uppercase leading-tight"></h1>
+          <p id="resultado-desc" class="text-gray-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed"></p>
+          <button id="resultado-cta" class="mt-8 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3">
+            <span>Quiero Inscribirme</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- UPSELL: Nutrición Funcional / FuXion, visible sin importar cuál fue el resultado -->
+      <div class="mt-8 rounded-3xl border-2 border-brand-yellow relative overflow-hidden">
+        <div class="absolute inset-0">
+          <img src="assets/img/fuxion-logo.jpg" alt="" class="w-full h-full object-cover opacity-25">
+          <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/85 to-transparent"></div>
+        </div>
+        <div class="relative z-10 p-6 sm:p-8 text-center">
+          <div class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-2">Nutrición Funcional</div>
+          <h3 class="font-title text-2xl sm:text-3xl uppercase text-white">Potencia tu plan con <span class="text-brand-yellow">FuXion</span></h3>
+          <a href="https://ifuxion.com/teamtopnutrition/enrollment/products" target="_blank" rel="noopener" class="mt-4 bg-brand-yellow text-black font-black uppercase text-sm px-6 py-3 rounded-xl hover:bg-brand-hoverYellow transition-all inline-flex items-center gap-2">
+            <span>Ir a la Tienda</span>
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE: fallback genérico (sin ?plan= o valor desconocido) -->
+    <div id="resultado-generico" class="hidden max-w-3xl mx-auto text-center relative z-10">
+      <span class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-4">Diagnóstico no encontrado</span>
+      <h1 class="font-title text-3xl sm:text-5xl uppercase leading-tight">No pudimos leer tu resultado, pero aquí están tus 3 opciones</h1>
+      <p class="text-gray-300 text-sm sm:text-base mt-4 leading-relaxed">
+        Parece que llegaste aquí sin completar el diagnóstico, o el link no incluyó tu resultado. Elige el programa que más se ajuste a ti,
+        o escríbele a Andrea directamente.
+      </p>
+      <a href="index.html#programas" class="mt-8 inline-flex items-center gap-3 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all">
+        <span>Ver los 3 Programas</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </main>
+
+  <!-- FOOTER (mismo shell que index.html) -->
+  <footer class="bg-brand-yellow text-black py-8 border-t border-yellow-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      <div>
+        <div class="font-title text-3xl font-extrabold tracking-wider">TEAM TOP NUTRITION</div>
+        <p class="text-xs font-semibold uppercase tracking-wider text-black/80 mt-1">Ciencia, constancia y hábitos reales.</p>
+      </div>
+      <div class="flex flex-wrap justify-center gap-6 font-title text-lg tracking-wider">
+        <a href="#" data-wa-message="Hola Andrea, ya hice mi diagnóstico y quiero hablar sobre mi resultado." target="_blank" class="hover:underline flex items-center gap-2">
+          <i class="fa-brands fa-whatsapp"></i> WHATSAPP
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="#" data-wa-message="Hola Andrea, ya hice mi diagnóstico y quiero hablar sobre mi resultado." target="_blank" class="wa-float fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-2xl transition-all transform hover:scale-110 flex items-center justify-center text-2xl" aria-label="Escribir por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- CHECKOUT MODAL (idéntico a index.html, reutiliza main.js) -->
+  <div id="checkout-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-brand-cardBg border border-brand-yellow/40 rounded-2xl max-w-md w-full p-6 relative">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl" aria-label="Cerrar">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center">
+        <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <h3 class="font-title text-3xl uppercase">Quiero Inscribirme</h3>
+        <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
+      </div>
+
+      <form onsubmit="handleFormSubmit(event)" class="mt-6 space-y-4">
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Nombre Completo</label>
+          <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Correo Electrónico</label>
+          <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">WhatsApp</label>
+          <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+
+        <button type="submit" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
+          Confirmar y Continuar a WhatsApp
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/supabase-config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/resultado.js"></script>
+</body>
+</html>

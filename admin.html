@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de Clientes | Team Top Nutrition</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="assets/img/logo-atn.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: { yellow: '#ECEF00', hoverYellow: '#D4D700', dark: '#0B0B0D', cardBg: '#16161A', cardBorder: '#27272E' }
+          },
+          fontFamily: { title: ['"Bebas Neue"', 'sans-serif'], sans: ['"Montserrat"', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-brand-dark text-gray-100 font-sans antialiased min-h-screen">
+
+  <nav class="border-b border-gray-800/80 bg-brand-cardBg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="logo-chip w-9 h-9 shrink-0">
+          <img src="assets/img/logo-atn.jpg" alt="Logo Team Top Nutrition">
+        </span>
+        <span class="font-title text-xl tracking-wider text-brand-yellow">PANEL DE CLIENTES</span>
+      </div>
+      <button id="logout-btn" class="hidden text-sm text-gray-400 hover:text-brand-yellow transition-colors">
+        Cerrar sesión <i class="fa-solid fa-arrow-right-from-bracket ml-1"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- LOGIN -->
+  <div id="login-view" class="max-w-md mx-auto px-4 pt-24">
+    <div class="glass-card rounded-2xl border border-brand-yellow/20 p-8">
+      <h1 class="font-title text-2xl uppercase mb-6 text-center">Ingresar</h1>
+      <form id="login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Correo</label>
+          <input type="email" id="login-email" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Contraseña</label>
+          <input type="password" id="login-password" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+        </div>
+        <p id="login-error" class="hidden text-xs text-red-400"></p>
+        <button type="submit" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all">
+          Entrar
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DASHBOARD -->
+  <main id="dashboard-view" class="hidden max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+      <h1 class="font-title text-3xl uppercase">Clientes y Órdenes</h1>
+      <select id="status-filter" class="bg-gray-900 border border-gray-700 rounded-lg px-4 py-2 text-sm">
+        <option value="">Todos los estados</option>
+        <option value="pending">Pendiente</option>
+        <option value="link_generated">Link generado</option>
+        <option value="paid">Pagado</option>
+        <option value="failed">Fallido</option>
+        <option value="expired">Expirado</option>
+        <option value="canceled">Cancelado</option>
+        <option value="refunded">Reembolsado</option>
+      </select>
+    </div>
+
+    <div id="loading-msg" class="text-gray-400 text-sm">Cargando...</div>
+    <div id="empty-msg" class="hidden text-gray-400 text-sm">Todavía no hay clientes registrados.</div>
+
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm hidden" id="orders-table">
+        <thead>
+          <tr class="text-left text-xs uppercase text-gray-400 border-b border-gray-800">
+            <th class="py-3 pr-4">Nombre</th>
+            <th class="py-3 pr-4">WhatsApp</th>
+            <th class="py-3 pr-4">Email</th>
+            <th class="py-3 pr-4">Plan</th>
+            <th class="py-3 pr-4">Estado</th>
+            <th class="py-3 pr-4">Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="orders-tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/supabase-config.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
