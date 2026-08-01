@@ -1,0 +1,6 @@
+# Metadata local de la Supabase CLI (project-ref, urls de conexión) — no es código del sitio
+supabase/.temp/
+
+# Por si algún día se agregan secretos locales
+.env
+.env.local
