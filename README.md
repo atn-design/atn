@@ -2,6 +2,10 @@
 
 Landing page estática (HTML/CSS/JS, sin build) para la marca de Andrea. Todo el flujo de conversión sigue terminando en WhatsApp, pero desde la Fase 1 del backend (ver sección dedicada abajo) cada lead/orden también queda registrado en una base de datos real (Supabase), visible en un panel propio (`admin.html`).
 
+**En vivo:** https://contactoandreatopnutrition-design.github.io/pagina-andrea-top-nutrition/
+**Panel de clientes:** https://contactoandreatopnutrition-design.github.io/pagina-andrea-top-nutrition/admin.html
+**Repositorio:** https://github.com/contactoandreatopnutrition-design/pagina-andrea-top-nutrition
+
 ## Cómo verla localmente
 
 Simplemente abre `index.html` en el navegador, o para probar con un servidor local (recomendado para que las rutas de imágenes se comporten igual que en producción):
