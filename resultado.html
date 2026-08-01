@@ -70,7 +70,7 @@
           <h1 id="resultado-title" class="font-title text-4xl sm:text-6xl uppercase leading-tight"></h1>
           <p id="resultado-desc" class="text-gray-300 text-sm sm:text-base mt-4 max-w-2xl mx-auto leading-relaxed"></p>
           <button id="resultado-cta" class="mt-8 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3">
-            <span>Quiero Inscribirme</span>
+            <span id="resultado-cta-label">Quiero Inscribirme</span>
             <i class="fa-solid fa-arrow-right"></i>
           </button>
         </div>
@@ -139,7 +139,7 @@
         <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
           <i class="fa-solid fa-circle-check"></i>
         </div>
-        <h3 class="font-title text-3xl uppercase">Quiero Inscribirme</h3>
+        <h3 class="font-title text-3xl uppercase" id="modal-heading">Quiero Inscribirme</h3>
         <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
       </div>
 
@@ -157,7 +157,7 @@
           <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
         </div>
 
-        <button type="submit" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
+        <button type="submit" id="modal-submit-btn" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
           Confirmar y Continuar a WhatsApp
         </button>
       </form>

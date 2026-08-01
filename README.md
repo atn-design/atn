@@ -41,7 +41,7 @@ El frontend sigue sin paso de build: Tailwind se carga vía CDN (`cdn.tailwindcs
 ## Pendientes antes de publicar
 
 1. **Dato médico sensible.** Por pedido explícito, la sección "Sobre Mí" solo menciona en términos generales "un reto de salud familiar difícil", sin especificar el diagnóstico del hijo de Andrea. No cambiar esto sin confirmación directa de Andrea.
-2. **Testimonios.** Las fotos son reales (provistas por Andrea), pero los textos de cita son redactados a partir del contexto visual de cada imagen, no citas textuales de las clientas/clientes. Si Andrea tiene las citas reales, reemplazar el texto en `index.html` (sección `#testimonios`).
+2. **Testimonios.** 3 de los 4 ya tienen nombre/edad/país reales (Karina, Alexander, Pauli — tomados del propio material de Andrea en Canva). El 4to (captura de Instagram de 5 días) sigue sin atribución real; reemplazar en `index.html` (sección `#testimonios`) si Andrea la consigue.
 3. **Dominio y SEO.** Antes de publicar, agregar `og:url` y `og:image` con la URL final del dominio, y validar cómo se ve el link compartido (ej. con la vista previa de WhatsApp/Facebook).
 4. **Video de fondo del hero.** `assets/video/hero-bg.mp4` es un clip stock genérico (mujer haciendo sentadillas con mancuernas) descargado de Mixkit bajo su "Stock Video Free License" (uso comercial permitido, sin atribución requerida — [ver clip original](https://mixkit.co/free-stock-video/a-young-woman-wearing-a-black-snugly-outfit-is-on-52111/)). Es un placeholder de marca genérico, no es Andrea. Si más adelante Andrea graba su propio video, reemplazar este archivo manteniendo el mismo nombre.
 5. **Backend (Fase 1) sin configurar todavía (ver sección dedicada abajo).** El código ya registra cada lead/orden en Supabase, pero `js/supabase-config.js` tiene placeholders — hasta que no se cree el proyecto real y se peguen las credenciales, el registro falla en silencio (el flujo de WhatsApp/ebook sigue funcionando igual, simplemente no queda nada guardado).
@@ -94,9 +94,13 @@ Arquitectura elegida: **Supabase** (Postgres + Auth + Edge Functions) como únic
 
 - Cada vez que alguien envía el modal de inscripción (cualquiera de los 3 programas o el Protocolo Gratis), `js/main.js` llama a la Edge Function `create-order`, que:
   1. Hace upsert del cliente en la tabla `customers` (usando el WhatsApp como clave única — mismo número, mismo cliente).
-  2. Inserta una fila en `orders` con el plan elegido. El Protocolo Gratis queda `status='paid'` de inmediato (es gratis); los 3 programas pagos quedan `status='pending'` (todavía no hay pasarela conectada).
+  2. Inserta una fila en `orders` con el plan elegido. El Protocolo Gratis queda `status='paid'` de inmediato (es gratis); Reset Metabólico queda `status='pending'` (todavía no hay pasarela conectada); Pérdida de Peso y Recomposición (marcados "Próximamente") quedan `status='waitlist'`.
 - Esta llamada **nunca bloquea ni rompe el flujo de WhatsApp**: se hace sin esperar su resultado (fire-and-forget) y cualquier error se ignora silenciosamente (solo se loguea en la consola del navegador para depurar).
-- `admin.html` es un panel protegido por login (Supabase Auth) donde Andrea ve la lista de clientes/órdenes con su estado, filtrable por estado.
+- `admin.html` es un panel protegido por login (Supabase Auth) donde Andrea ve la lista de clientes/órdenes con su estado, filtrable por estado (incluye "Lista de espera").
+
+### "Próximamente" (Pérdida de Peso Acelerada y Recomposición Corporal)
+
+Estos 2 programas todavía no están lanzados. Sus tarjetas en `#programas` (`index.html`) muestran un badge "Próximamente" y su botón ("Avísame al Lanzamiento") abre el mismo modal de inscripción pero en **modo lista de espera** (`openWaitlistModal()` en `js/main.js`): cambia el título del modal, el mensaje de WhatsApp ("quiero que me avises cuando esté disponible") y la orden se guarda con `status='waitlist'` en vez de `pending`. Lo mismo aplica si el diagnóstico (`diagnostico.html`) recomienda uno de estos 2 planes — `resultado.html` también muestra el tratamiento de "Próximamente" (`js/resultado.js`, flag `comingSoon`). El Reset Metabólico 7 Días es, por ahora, el único programa con inscripción real.
 
 ### Setup (una sola vez, hace falta antes de que esto funcione de verdad)
 

@@ -20,7 +20,7 @@ function buildWaLink(message) {
 // Registra el lead/orden en Supabase (Fase 1: sin pagos todavía).
 // Nunca debe bloquear ni romper el flujo de WhatsApp — por eso no se espera (await) su resultado
 // antes de continuar, y cualquier error se traga en silencio (solo se loguea para depurar).
-function registerOrder({ plan, nombre, email, whatsapp }) {
+function registerOrder({ plan, nombre, email, whatsapp, isWaitlist }) {
   if (typeof CREATE_ORDER_FUNCTION_URL === 'undefined' || SUPABASE_ANON_KEY === 'TU-ANON-KEY-AQUI') {
     return; // Supabase todavía no está configurado (ver js/supabase-config.js) — no hacer nada.
   }
@@ -39,6 +39,7 @@ function registerOrder({ plan, nombre, email, whatsapp }) {
       email,
       whatsapp,
       plan_code: planCode,
+      is_waitlist: !!isWaitlist,
       first_source: planCode === 'protocolo-gratis' ? 'protocolo_gratis' : 'programas_cta',
     }),
   }).catch((err) => console.warn('No se pudo registrar el lead en Supabase:', err));
@@ -54,8 +55,23 @@ if (mobileMenuBtn && mobileMenu) {
   });
 }
 
-// Modal de inscripción (reutilizado por los 4 programas y por el Protocolo Gratis 72h)
+// Modal de inscripción (reutilizado por los 4 programas y por el Protocolo Gratis 72h).
+// También sirve, en "modo lista de espera", para los planes marcados "Próximamente".
+let isWaitlistMode = false;
+
 function openModal(planName) {
+  isWaitlistMode = false;
+  document.getElementById('modal-heading').textContent = 'Quiero Inscribirme';
+  document.getElementById('modal-submit-btn').textContent = 'Confirmar y Continuar a WhatsApp';
+  document.getElementById('modal-plan-title').textContent = planName;
+  document.getElementById('checkout-modal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+}
+
+function openWaitlistModal(planName) {
+  isWaitlistMode = true;
+  document.getElementById('modal-heading').textContent = 'Avísame al Lanzamiento';
+  document.getElementById('modal-submit-btn').textContent = 'Anotarme en la Lista';
   document.getElementById('modal-plan-title').textContent = planName;
   document.getElementById('checkout-modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
@@ -74,12 +90,18 @@ function handleFormSubmit(event) {
   const email = form.querySelector('[name="email"]').value.trim();
   const whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
   const isFreeProtocol = plan === FREE_PROTOCOL_PLAN_NAME;
+  const wasWaitlist = isWaitlistMode;
 
-  const message = isFreeProtocol
-    ? `Hola Andrea, soy ${name}. Ya recibí mi Protocolo de Desinflamación Express (72h) desde la página, ¡gracias!`
-    : `Hola Andrea, soy ${name}. Quiero información para inscribirme en: ${plan}`;
+  let message;
+  if (wasWaitlist) {
+    message = `Hola Andrea, soy ${name}. Quiero que me avises cuando esté disponible: ${plan}.`;
+  } else if (isFreeProtocol) {
+    message = `Hola Andrea, soy ${name}. Ya recibí mi Protocolo de Desinflamación Express (72h) desde la página, ¡gracias!`;
+  } else {
+    message = `Hola Andrea, soy ${name}. Quiero información para inscribirme en: ${plan}`;
+  }
 
-  registerOrder({ plan, nombre: name, email, whatsapp });
+  registerOrder({ plan, nombre: name, email, whatsapp, isWaitlist: wasWaitlist });
 
   closeModal();
   form.reset();

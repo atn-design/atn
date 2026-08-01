@@ -11,18 +11,20 @@ const RESULT_PLANS = {
     modalPlan: 'Reset Metabólico 7 Días',
   },
   'perdida-peso': {
-    badge: 'Tu punto de partida recomendado',
+    badge: 'Tu punto de partida recomendado · Próximamente',
     title: 'Pérdida de Peso Acelerada',
-    desc: 'Tu diagnóstico muestra que ya tienes cierto margen de actividad, pero el objetivo ahora es bajar grasa de verdad sin pasar hambre ni perder masa muscular. Este programa está diseñado exactamente para eso.',
+    desc: 'Tu diagnóstico muestra que ya tienes cierto margen de actividad, pero el objetivo ahora es bajar grasa de verdad sin pasar hambre ni perder masa muscular. Este programa está diseñado exactamente para eso — y está por lanzarse. Anótate y te avisamos apenas esté disponible.',
     img: 'assets/img/andrea-cutout.jpg',
     modalPlan: 'Pérdida de Peso Acelerada',
+    comingSoon: true,
   },
   recomposicion: {
-    badge: 'Tu punto de partida recomendado',
+    badge: 'Tu punto de partida recomendado · Próximamente',
     title: 'Recomposición Corporal',
-    desc: 'Tu diagnóstico muestra que ya tienes una base activa y buenos hábitos. Ahora toca tonificar, ganar firmeza y consolidar resultados sin efecto rebote.',
+    desc: 'Tu diagnóstico muestra que ya tienes una base activa y buenos hábitos. Ahora toca tonificar, ganar firmeza y consolidar resultados sin efecto rebote — este programa está por lanzarse. Anótate y te avisamos apenas esté disponible.',
     img: 'assets/img/abdomen.jpg',
     modalPlan: 'Recomposición Corporal',
+    comingSoon: true,
   },
 };
 
@@ -45,7 +47,14 @@ function renderResultado() {
   document.getElementById('resultado-desc').textContent = plan.desc;
   document.getElementById('resultado-img').src = plan.img;
   document.getElementById('resultado-img').alt = plan.title;
-  document.getElementById('resultado-cta').setAttribute('onclick', `openModal('${plan.modalPlan}')`);
+
+  if (plan.comingSoon) {
+    document.getElementById('resultado-cta-label').textContent = 'Avísame al Lanzamiento';
+    document.getElementById('resultado-cta').setAttribute('onclick', `openWaitlistModal('${plan.modalPlan}')`);
+  } else {
+    document.getElementById('resultado-cta-label').textContent = 'Quiero Inscribirme';
+    document.getElementById('resultado-cta').setAttribute('onclick', `openModal('${plan.modalPlan}')`);
+  }
 
   planBlock.classList.remove('hidden');
   genericBlock.classList.add('hidden');

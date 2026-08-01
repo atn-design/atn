@@ -20,6 +20,7 @@ const STATUS_LABELS = {
   pending: 'Pendiente',
   link_generated: 'Link generado',
   paid: 'Pagado',
+  waitlist: 'Lista de espera',
   failed: 'Fallido',
   expired: 'Expirado',
   canceled: 'Cancelado',

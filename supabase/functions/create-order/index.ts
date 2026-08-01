@@ -22,7 +22,7 @@ Deno.serve(async (req) => {
   }
 
   try {
-    const { nombre, email, whatsapp, plan_code, first_source } = await req.json();
+    const { nombre, email, whatsapp, plan_code, first_source, is_waitlist } = await req.json();
 
     if (!nombre || !whatsapp || !plan_code) {
       return new Response(JSON.stringify({ error: 'Faltan campos requeridos' }), {
@@ -70,15 +70,17 @@ Deno.serve(async (req) => {
     }
 
     // Fase 1: sin pasarela de pago todavía — el gratuito queda 'paid' de una vez,
-    // los planes pagos quedan 'pending' hasta que existan Flow/PayPal (Fase 2/3).
+    // los planes "Próximamente" (waitlist) quedan 'waitlist', y el resto 'pending'
+    // hasta que existan Flow/PayPal (Fase 2/3).
+    const status = is_waitlist ? 'waitlist' : plan.is_free ? 'paid' : 'pending';
     const { data: order, error: orderError } = await supabaseAdmin
       .from('orders')
       .insert({
         customer_id: customer.id,
         plan_code,
         payment_provider: 'none',
-        status: plan.is_free ? 'paid' : 'pending',
-        paid_at: plan.is_free ? new Date().toISOString() : null,
+        status,
+        paid_at: status === 'paid' ? new Date().toISOString() : null,
       })
       .select('id, status')
       .single();

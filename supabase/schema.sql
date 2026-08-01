@@ -1,5 +1,13 @@
 -- Team Top Nutrition — Esquema Fase 1 (base de datos de clientes, sin pagos todavía)
 -- Correr esto completo en Supabase → SQL Editor, una sola vez, sobre un proyecto nuevo.
+--
+-- Si esto se corre sobre una base de datos que YA tiene la tabla `orders` creada
+-- (como la de producción), el `create table if not exists` no va a actualizar la
+-- restricción de `status` con el nuevo valor 'waitlist'. En ese caso, correr aparte:
+--
+--   alter table orders drop constraint orders_status_check;
+--   alter table orders add constraint orders_status_check
+--     check (status in ('pending','link_generated','paid','failed','expired','canceled','refunded','waitlist'));
 
 create table if not exists plans (
   code       text primary key,          -- 'reset-7d' | 'perdida-peso' | 'recomposicion' | 'protocolo-gratis'
@@ -33,7 +41,7 @@ create table if not exists orders (
   provider_order_id text,
   payment_link_url  text,
   status            text not null default 'pending'
-                      check (status in ('pending','link_generated','paid','failed','expired','canceled','refunded')),
+                      check (status in ('pending','link_generated','paid','failed','expired','canceled','refunded','waitlist')),
   metadata          jsonb not null default '{}',
   created_at        timestamptz not null default now(),
   paid_at           timestamptz,

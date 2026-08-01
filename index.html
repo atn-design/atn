@@ -141,8 +141,20 @@
         </a>
       </div>
 
-      <!-- Pilares (reemplaza cifras no verificadas por los pilares reales del método) -->
-      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-800 max-w-4xl mx-auto">
+      <!-- Cifras de credibilidad -->
+      <div class="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 max-w-3xl mx-auto">
+        <div class="text-center">
+          <div class="font-title text-3xl sm:text-4xl text-brand-yellow">7 AÑOS</div>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-1">De Experiencia</div>
+        </div>
+        <div class="text-center">
+          <div class="font-title text-3xl sm:text-4xl text-brand-yellow">35 PAÍSES</div>
+          <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-1">En Presencia Activa</div>
+        </div>
+      </div>
+
+      <!-- Pilares -->
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6 pt-10 border-t border-gray-800 max-w-4xl mx-auto">
         <div>
           <i class="fa-solid fa-leaf text-brand-yellow text-xl"></i>
           <div class="text-xs uppercase tracking-wider text-gray-400 font-semibold mt-2">Nutrición Funcional</div>
@@ -283,7 +295,7 @@
         <!-- CARD 2 -->
         <div class="glass-card rounded-2xl overflow-hidden border border-brand-yellow/50 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between relative group transform lg:-translate-y-2 shadow-xl shadow-brand-yellow/5">
           <div class="absolute top-3 right-3 z-10 bg-brand-yellow text-black font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">
-            Más Popular
+            Próximamente
           </div>
           <div class="h-44 overflow-hidden">
             <img src="assets/img/andrea-cutout.jpg" alt="Pérdida de Peso Acelerada" class="w-full h-full object-cover object-top bg-black group-hover:scale-105 transition-transform duration-300">
@@ -301,15 +313,18 @@
             </ul>
           </div>
           <div class="p-8 pt-0">
-            <button onclick="openModal('Pérdida de Peso Acelerada')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
-              <span>Únete Hoy</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <button onclick="openWaitlistModal('Pérdida de Peso Acelerada')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+              <span>Avísame al Lanzamiento</span>
+              <i class="fa-solid fa-bell"></i>
             </button>
           </div>
         </div>
 
         <!-- CARD 3 -->
-        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between group">
+        <div class="glass-card rounded-2xl overflow-hidden border border-gray-800 hover:border-brand-yellow transition-all duration-300 flex flex-col justify-between relative group">
+          <div class="absolute top-3 right-3 z-10 bg-brand-yellow text-black font-black text-xs px-4 py-1.5 rounded-full uppercase tracking-wider">
+            Próximamente
+          </div>
           <div class="h-44 overflow-hidden">
             <img src="assets/img/abdomen.jpg" alt="Recomposición Corporal" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-300">
           </div>
@@ -326,9 +341,9 @@
             </ul>
           </div>
           <div class="p-8 pt-0">
-            <button onclick="openModal('Recomposición Corporal')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
-              <span>Únete Hoy</span>
-              <i class="fa-solid fa-arrow-right"></i>
+            <button onclick="openWaitlistModal('Recomposición Corporal')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+              <span>Avísame al Lanzamiento</span>
+              <i class="fa-solid fa-bell"></i>
             </button>
           </div>
         </div>
@@ -378,32 +393,32 @@
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
-          <img src="assets/img/testimonio-1.jpg" alt="Testimonio: de mamá a mamá en forma" class="testimonial-photo">
+          <img src="assets/img/testimonio-1.jpg" alt="Testimonio de Karina, 42 años, Uruguay" class="testimonial-photo">
           <div class="p-5 flex flex-col flex-1">
             <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
-              "Pensé que la maternidad no me dejaría recuperar mi energía. Hoy entreno con la misma fuerza con la que sostengo mi casa."
+              "-32kg y una recomposición corporal hermosa. No se trata solo del peso, sino de recuperar la energía y eliminar la fatiga mental, corporal y muscular, las molestias digestivas y los dolores de cabeza — y aumentar la autoestima en una madre es lo que deberíamos normalizar."
             </p>
-            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">De mamá a mamá en forma</div>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Karina, 42 años — Uruguay</div>
           </div>
         </div>
 
         <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
-          <img src="assets/img/testimonio-2.jpg" alt="Testimonio: transformación en 3 meses" class="testimonial-photo">
+          <img src="assets/img/testimonio-2.jpg" alt="Testimonio de Alexander, 32 años, España" class="testimonial-photo">
           <div class="p-5 flex flex-col flex-1">
             <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
-              "Los hombres también buscamos mejorar nuestra condición física y salud, sin restricciones ridículas. -15 kg en 3 meses."
+              "Los hombres también buscamos mejorar nuestra condición física y salud. -15 kg en dos meses."
             </p>
-            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Transformación en 3 meses</div>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Alexander, 32 años — España</div>
           </div>
         </div>
 
         <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
-          <img src="assets/img/testimonio-3.jpg" alt="Testimonio: recomposición corporal" class="testimonial-photo">
+          <img src="assets/img/testimonio-3.jpg" alt="Testimonio de Pauli, 34 años, Chile" class="testimonial-photo">
           <div class="p-5 flex flex-col flex-1">
             <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
-              "No se trata solo del peso, sino de recuperar la energía y eliminar la fatiga constante. Cero efecto rebote."
+              "Cambios notables en el aspecto de la piel y la desinflamación del cuerpo en tan solo 7 días, al inicio de mi transformación."
             </p>
-            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Recomposición corporal</div>
+            <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Pauli, 34 años — Chile</div>
           </div>
         </div>
 
@@ -570,7 +585,7 @@
         <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
           <i class="fa-solid fa-circle-check"></i>
         </div>
-        <h3 class="font-title text-3xl uppercase">Quiero Inscribirme</h3>
+        <h3 class="font-title text-3xl uppercase" id="modal-heading">Quiero Inscribirme</h3>
         <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
       </div>
 
@@ -588,7 +603,7 @@
           <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
         </div>
 
-        <button type="submit" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
+        <button type="submit" id="modal-submit-btn" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
           Confirmar y Continuar a WhatsApp
         </button>
       </form>
