@@ -3,7 +3,7 @@
 
 const WHATSAPP_NUMBER = '56945925331'; // Teléfono real de Andrea (Chile)
 const FREE_PROTOCOL_PLAN_NAME = 'Protocolo de Desinflamación Express 72h (GRATIS)';
-const EBOOK_RESET_72H_URL = 'https://canva.link/uv3gdvzn7nk07n6';
+const EBOOK_RESET_72H_URL = 'ebook.html'; // página propia con el diseño de Canva incrustado
 
 // Nombre exacto (el que usan los onclick="openModal(...)") → code de la tabla `plans` en Supabase
 const PLAN_CODES = {

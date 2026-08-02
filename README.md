@@ -58,7 +58,7 @@ El diagnóstico con puntaje (antes la 2da encuesta de Tally) ahora es **nativo e
    - Pasos 2–5 — las 4 preguntas puntuadas (síntoma, actividad física, alimentación, tiempo disponible), con los puntajes reales que Andrea ya tenía configurados en Tally (ver tabla abajo).
    - Paso final — correo opcional, luego calcula el puntaje total y redirige a `resultado.html?plan=...&email=...`.
 3. **`resultado.html?plan=...`** — resultado personalizado + CTA de WhatsApp para inscribirse (reutiliza el modal existente; si venía `?email=`, se precarga en el formulario). Debajo del resultado hay un upsell de FuXion (link real a la tienda).
-4. **Oferta "plan B" (Protocolo Gratis 72h)** — al final de `index.html` (justo después del promo de FuXion en `#programas`), para quien no cierra la compra de un programa. Es 100% nativa (ya no usa Tally): abre el mismo modal de inscripción (`openModal('Protocolo de Desinflamación Express 72h (GRATIS)')`), y al enviarlo, `js/main.js` abre directo el [ebook de Canva](https://canva.link/uv3gdvzn7nk07n6) en una pestaña nueva (entrega instantánea) además del WhatsApp de siempre. Debajo del botón hay un link de respaldo por si el navegador bloquea la pestaña nueva.
+4. **Oferta "plan B" (Protocolo Gratis 72h)** — al final de `index.html` (justo después del promo de FuXion en `#programas`), para quien no cierra la compra de un programa. Es 100% nativa (ya no usa Tally): abre el mismo modal de inscripción (`openModal('Protocolo de Desinflamación Express 72h (GRATIS)')`), y al enviarlo, `js/main.js` abre directo el [ebook](ebook.html) (página propia con el diseño de Canva incrustado) en una pestaña nueva (entrega instantánea) además del WhatsApp de siempre. Debajo del botón hay un link de respaldo por si el navegador bloquea la pestaña nueva.
 
 ### Mapeo de puntaje (rango 2–10, confirmado con Andrea sobre la configuración original de Tally)
 
@@ -83,7 +83,7 @@ mandar el ebook por correo automáticamente). El usuario decidió priorizar la c
 (el popup de Tally se veía blanco/desalineado del tema oscuro+amarillo) sobre esas dos capacidades, así que ahora:
 
 - El botón "Quiero mi Protocolo Gratis" (al final de `index.html`) abre el mismo modal nativo de inscripción que usan los programas.
-- Al enviarlo, `js/main.js` (`handleFormSubmit`) abre directamente el [ebook de Canva](https://canva.link/uv3gdvzn7nk07n6) en una pestaña nueva — entrega instantánea, sin depender de un correo automático — y además abre WhatsApp como con cualquier otro plan.
+- Al enviarlo, `js/main.js` (`handleFormSubmit`) abre directamente el [ebook](ebook.html) (página propia con el diseño de Canva incrustado) en una pestaña nueva — entrega instantánea, sin depender de un correo automático — y además abre WhatsApp como con cualquier otro plan.
 - **Actualización:** esto ya NO pierde el registro del lead. Desde la Fase 1 del backend (ver sección siguiente), `handleFormSubmit` también llama a la Edge Function `create-order`, que guarda el cliente y la orden en Supabase — visible en `admin.html`. Antes de configurar Supabase (ver setup abajo), esa llamada falla en silencio y el comportamiento es el mismo de antes (nada se guarda, pero WhatsApp/ebook igual funcionan).
 
 ## Backend (Fase 1): base de datos de clientes, sin pagos todavía
