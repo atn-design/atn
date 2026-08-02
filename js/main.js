@@ -8,8 +8,8 @@ const EBOOK_RESET_72H_URL = 'ebook.html'; // página propia con el diseño de Ca
 // Nombre exacto (el que usan los onclick="openModal(...)") → code de la tabla `plans` en Supabase
 const PLAN_CODES = {
   'Reset Metabólico 7 Días': 'reset-7d',
-  'Pérdida de Peso Acelerada': 'perdida-peso',
-  'Recomposición Corporal': 'recomposicion',
+  'Transformación Integral (45 Días)': 'perdida-peso',
+  'Vitalidad Constante y Autonomía (90 Días)': 'recomposicion',
   [FREE_PROTOCOL_PLAN_NAME]: 'protocolo-gratis',
 };
 

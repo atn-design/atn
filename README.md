@@ -64,8 +64,8 @@ El diagnóstico con puntaje (antes la 2da encuesta de Tally) ahora es **nativo e
 
 | Puntaje total | Plan recomendado | `resultado.html?plan=` |
 |---|---|---|
-| ≤ 4 | Recomposición Corporal | `recomposicion` |
-| 5–7 | Pérdida de Peso Acelerada | `perdida-peso` |
+| ≤ 4 | Vitalidad Constante y Autonomía (90 Días) | `recomposicion` |
+| 5–7 | Transformación Integral (45 Días) | `perdida-peso` |
 | ≥ 8 | Reset Metabólico 7 Días | `reset-7d` |
 
 Las 4 preguntas puntuadas y su detalle de puntaje exacto están documentadas como comentarios/datos en `js/diagnostico.js` (arreglo `STEPS`).
@@ -98,7 +98,7 @@ Arquitectura elegida: **Supabase** (Postgres + Auth + Edge Functions) como únic
 - Esta llamada **nunca bloquea ni rompe el flujo de WhatsApp**: se hace sin esperar su resultado (fire-and-forget) y cualquier error se ignora silenciosamente (solo se loguea en la consola del navegador para depurar).
 - `admin.html` es un panel protegido por login (Supabase Auth) donde Andrea ve la lista de clientes/órdenes con su estado, filtrable por estado (incluye "Lista de espera").
 
-### "Próximamente" (Pérdida de Peso Acelerada y Recomposición Corporal)
+### "Próximamente" (Transformación Integral 45D y Vitalidad Constante y Autonomía 90D)
 
 Estos 2 programas todavía no están lanzados. Sus tarjetas en `#programas` (`index.html`) muestran un badge "Próximamente" y su botón ("Avísame al Lanzamiento") abre el mismo modal de inscripción pero en **modo lista de espera** (`openWaitlistModal()` en `js/main.js`): cambia el título del modal, el mensaje de WhatsApp ("quiero que me avises cuando esté disponible") y la orden se guarda con `status='waitlist'` en vez de `pending`. Lo mismo aplica si el diagnóstico (`diagnostico.html`) recomienda uno de estos 2 planes — `resultado.html` también muestra el tratamiento de "Próximamente" (`js/resultado.js`, flag `comingSoon`). El Reset Metabólico 7 Días es, por ahora, el único programa con inscripción real.
 

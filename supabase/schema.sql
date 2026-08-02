@@ -61,10 +61,10 @@ create table if not exists payment_events (
 -- TODO: completar price_clp / price_usd apenas Andrea defina los precios reales.
 insert into plans (code, name, price_clp, price_usd, is_free) values
   ('reset-7d',        'Reset Metabólico 7 Días',                          null, null, false),
-  ('perdida-peso',    'Pérdida de Peso Acelerada',                        null, null, false),
-  ('recomposicion',   'Recomposición Corporal',                           null, null, false),
+  ('perdida-peso',    'Transformación Integral (45 Días)',                null, null, false),
+  ('recomposicion',   'Vitalidad Constante y Autonomía (90 Días)',        null, null, false),
   ('protocolo-gratis','Protocolo de Desinflamación Express 72h (GRATIS)', 0,    0,    true)
-on conflict (code) do nothing;
+on conflict (code) do update set name = excluded.name;
 
 -- Row Level Security: solo la cuenta autenticada de Andrea puede leer.
 -- Las escrituras (crear cliente/orden) solo las hace la Edge Function con la service_role key,
