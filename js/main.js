@@ -3,7 +3,6 @@
 
 const WHATSAPP_NUMBER = '56945925331'; // Teléfono real de Andrea (Chile)
 const FREE_PROTOCOL_PLAN_NAME = 'Protocolo de Desinflamación Express 72h (GRATIS)';
-const EBOOK_RESET_72H_URL = 'ebook.html'; // página propia con el diseño de Canva incrustado
 
 // Nombre exacto (el que usan los onclick="openModal(...)") → code de la tabla `plans` en Supabase
 const PLAN_CODES = {
@@ -59,8 +58,14 @@ if (mobileMenuBtn && mobileMenu) {
 // También sirve, en "modo lista de espera", para los planes marcados "Próximamente".
 let isWaitlistMode = false;
 
+function showModalFormView() {
+  document.getElementById('modal-form-view').classList.remove('hidden');
+  document.getElementById('modal-success-view').classList.add('hidden');
+}
+
 function openModal(planName) {
   isWaitlistMode = false;
+  showModalFormView();
   document.getElementById('modal-heading').textContent = 'Quiero Inscribirme';
   document.getElementById('modal-submit-btn').textContent = 'Confirmar y Continuar a WhatsApp';
   document.getElementById('modal-plan-title').textContent = planName;
@@ -70,6 +75,7 @@ function openModal(planName) {
 
 function openWaitlistModal(planName) {
   isWaitlistMode = true;
+  showModalFormView();
   document.getElementById('modal-heading').textContent = 'Avísame al Lanzamiento';
   document.getElementById('modal-submit-btn').textContent = 'Anotarme en la Lista';
   document.getElementById('modal-plan-title').textContent = planName;
@@ -82,6 +88,14 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
+function showModalSuccess({ icon, title, desc }) {
+  document.getElementById('modal-success-icon').className = `fa-solid ${icon}`;
+  document.getElementById('modal-success-title').textContent = title;
+  document.getElementById('modal-success-desc').textContent = desc;
+  document.getElementById('modal-form-view').classList.add('hidden');
+  document.getElementById('modal-success-view').classList.remove('hidden');
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
   const form = event.target;
@@ -92,24 +106,31 @@ function handleFormSubmit(event) {
   const isFreeProtocol = plan === FREE_PROTOCOL_PLAN_NAME;
   const wasWaitlist = isWaitlistMode;
 
-  let message;
-  if (wasWaitlist) {
-    message = `Hola Andrea, soy ${name}. Quiero que me avises cuando esté disponible: ${plan}.`;
-  } else if (isFreeProtocol) {
-    message = `Hola Andrea, soy ${name}. Ya recibí mi Protocolo de Desinflamación Express (72h) desde la página, ¡gracias!`;
-  } else {
-    message = `Hola Andrea, soy ${name}. Quiero información para inscribirme en: ${plan}`;
-  }
-
   registerOrder({ plan, nombre: name, email, whatsapp, isWaitlist: wasWaitlist });
-
-  closeModal();
   form.reset();
 
-  if (isFreeProtocol) {
-    // Entrega instantánea del ebook (no hay backend/email automático: se abre directo)
-    window.open(EBOOK_RESET_72H_URL, '_blank');
+  if (wasWaitlist) {
+    // Sin WhatsApp: solo queda registrada en la lista de espera (status='waitlist' en Supabase).
+    showModalSuccess({
+      icon: 'fa-bell',
+      title: '¡Listo, ya quedaste anotada!',
+      desc: 'Serás de las primeras en enterarte apenas esté disponible.',
+    });
+    return;
   }
+
+  if (isFreeProtocol) {
+    // Sin WhatsApp: el ebook se envía automático por correo (Edge Function `create-order`).
+    showModalSuccess({
+      icon: 'fa-envelope-circle-check',
+      title: '¡Revisa tu correo!',
+      desc: `Te enviamos tu Protocolo de Desinflamación Express (72h) a ${email}.`,
+    });
+    return;
+  }
+
+  closeModal();
+  const message = `Hola Andrea, soy ${name}. Quiero información para inscribirme en: ${plan}`;
   window.open(buildWaLink(message), '_blank');
 }
 

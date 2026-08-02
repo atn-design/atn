@@ -358,10 +358,10 @@
             </ul>
           </div>
           <div class="p-8 pt-0">
-            <button onclick="openModal('Reset Metabólico 7 Días')" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
+            <a href="resultado.html?plan=reset-7d" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-3.5 rounded-xl hover:bg-brand-hoverYellow transition-all flex items-center justify-center gap-2">
               <span>Únete Hoy al Reset</span>
               <i class="fa-solid fa-arrow-right"></i>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -626,48 +626,19 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-brand-yellow text-black py-10 border-t border-yellow-500">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="text-center md:text-left pb-8 border-b border-black/10">
-        <div class="font-title text-3xl font-extrabold tracking-wider">TEAM TOP NUTRITION</div>
-        <p class="text-xs font-semibold uppercase tracking-wider text-black/80 mt-1">Ciencia, constancia y hábitos reales.</p>
+  <footer class="bg-brand-yellow text-black py-8 border-t border-yellow-500">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col items-center gap-4 text-center">
+      <div>
+        <div class="font-title text-2xl font-extrabold tracking-wider">TEAM TOP NUTRITION</div>
+        <p class="text-[11px] font-semibold uppercase tracking-wider text-black/70 mt-1">Ciencia, constancia y hábitos reales.</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 pt-8 text-center sm:text-left">
-        <div>
-          <h4 class="font-title text-2xl uppercase italic mb-3">Redes Sociales</h4>
-          <div class="space-y-2 text-sm font-semibold">
-            <div class="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
-              <a href="https://instagram.com/andreatopnutrition" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:underline">
-                <i class="fa-brands fa-instagram"></i> @andreatopnutrition
-              </a>
-              <span class="text-black/40">|</span>
-              <a href="https://instagram.com/teamtopnutrition" target="_blank" rel="noopener" class="flex items-center gap-1.5 hover:underline">
-                <i class="fa-brands fa-instagram"></i> @teamtopnutrition
-              </a>
-            </div>
-            <a href="https://www.tiktok.com/@andreatopnutrition" target="_blank" rel="noopener" class="flex items-center justify-center sm:justify-start gap-1.5 hover:underline">
-              <i class="fa-brands fa-tiktok"></i> @andreatopnutrition
-            </a>
-            <a href="https://www.threads.net/@andreatopnutrition" target="_blank" rel="noopener" class="flex items-center justify-center sm:justify-start gap-1.5 hover:underline">
-              <i class="fa-brands fa-threads"></i> @andreatopnutrition
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="font-title text-2xl uppercase italic mb-3">Correo Electrónico</h4>
-          <a href="mailto:contactoandreatopnutrition@gmail.com" class="flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold hover:underline break-all">
-            <i class="fa-solid fa-envelope"></i> contactoandreatopnutrition@gmail.com
-          </a>
-        </div>
-
-        <div>
-          <h4 class="font-title text-2xl uppercase italic mb-3">Teléfono</h4>
-          <a href="#" data-wa-message="Hola Andrea, quiero más información sobre tus planes." target="_blank" class="flex items-center justify-center sm:justify-start gap-2 text-sm font-semibold hover:underline">
-            <i class="fa-brands fa-whatsapp"></i> (+56) 945 92 5331
-          </a>
-        </div>
+      <div class="flex items-center justify-center gap-5 text-xl">
+        <a href="https://instagram.com/andreatopnutrition" target="_blank" rel="noopener" title="@andreatopnutrition" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://instagram.com/teamtopnutrition" target="_blank" rel="noopener" title="@teamtopnutrition" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@andreatopnutrition" target="_blank" rel="noopener" title="TikTok" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://www.threads.net/@andreatopnutrition" target="_blank" rel="noopener" title="Threads" class="hover:opacity-70 transition-opacity"><i class="fa-brands fa-threads"></i></a>
+        <a href="mailto:contactoandreatopnutrition@gmail.com" title="Correo" class="hover:opacity-70 transition-opacity"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
   </footer>
@@ -684,32 +655,45 @@
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <div class="text-center">
-        <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-          <i class="fa-solid fa-circle-check"></i>
+      <div id="modal-form-view">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h3 class="font-title text-3xl uppercase" id="modal-heading">Quiero Inscribirme</h3>
+          <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
         </div>
-        <h3 class="font-title text-3xl uppercase" id="modal-heading">Quiero Inscribirme</h3>
-        <p class="text-xs text-brand-yellow font-bold uppercase mt-1" id="modal-plan-title"></p>
+
+        <form onsubmit="handleFormSubmit(event)" class="mt-6 space-y-4">
+          <div>
+            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Nombre Completo</label>
+            <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Correo Electrónico</label>
+            <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs uppercase font-bold text-gray-400 mb-1">WhatsApp</label>
+            <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+          </div>
+
+          <button type="submit" id="modal-submit-btn" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
+            Confirmar y Continuar a WhatsApp
+          </button>
+        </form>
       </div>
 
-      <form onsubmit="handleFormSubmit(event)" class="mt-6 space-y-4">
-        <div>
-          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Nombre Completo</label>
-          <input type="text" name="nombre" required placeholder="Tu nombre" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
+      <div id="modal-success-view" class="hidden text-center py-4">
+        <div class="w-14 h-14 bg-brand-yellow/10 text-brand-yellow rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+          <i class="fa-solid fa-bell" id="modal-success-icon"></i>
         </div>
-        <div>
-          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">Correo Electrónico</label>
-          <input type="email" name="email" required placeholder="tu@email.com" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
-        </div>
-        <div>
-          <label class="block text-xs uppercase font-bold text-gray-400 mb-1">WhatsApp</label>
-          <input type="tel" name="whatsapp" required placeholder="+57 300 000 0000" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-sm focus:border-brand-yellow focus:outline-none">
-        </div>
-
-        <button type="submit" id="modal-submit-btn" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
-          Confirmar y Continuar a WhatsApp
+        <h3 class="font-title text-2xl uppercase" id="modal-success-title">¡Listo, ya quedaste anotada!</h3>
+        <p class="text-gray-300 text-sm mt-2" id="modal-success-desc">Serás de las primeras en enterarte apenas esté disponible.</p>
+        <button onclick="closeModal()" class="mt-6 bg-brand-yellow text-black font-black uppercase text-sm px-6 py-3 rounded-xl hover:bg-brand-hoverYellow transition-all">
+          Cerrar
         </button>
-      </form>
+      </div>
     </div>
   </div>
 
