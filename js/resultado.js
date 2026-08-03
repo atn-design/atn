@@ -35,10 +35,31 @@ function renderResultado() {
 
   const genericBlock = document.getElementById('resultado-generico');
   const planBlock = document.getElementById('resultado-plan');
+  const reset7dBlock = document.getElementById('resultado-reset7d');
+  const fuxionBox = document.getElementById('resultado-fuxion-box');
+
+  const email = params.get('email');
+  if (email) {
+    const emailInput = document.querySelector('#checkout-modal input[name="email"]');
+    if (emailInput) emailInput.value = email;
+  }
+
+  // Reset 7D tiene su propia página de ventas completa (calculadora, testimonios, FuXion, FAQ)
+  // en vez del bloque genérico usado por los otros 2 planes.
+  if (planKey === 'reset-7d') {
+    reset7dBlock.classList.remove('hidden');
+    planBlock.classList.add('hidden');
+    genericBlock.classList.add('hidden');
+    fuxionBox.classList.remove('hidden');
+    return;
+  }
+
+  reset7dBlock.classList.add('hidden');
 
   if (!plan) {
     genericBlock.classList.remove('hidden');
     planBlock.classList.add('hidden');
+    fuxionBox.classList.add('hidden');
     return;
   }
 
@@ -58,12 +79,7 @@ function renderResultado() {
 
   planBlock.classList.remove('hidden');
   genericBlock.classList.add('hidden');
-
-  const email = params.get('email');
-  if (email) {
-    const emailInput = document.querySelector('#checkout-modal input[name="email"]');
-    if (emailInput) emailInput.value = email;
-  }
+  fuxionBox.classList.remove('hidden');
 }
 
 document.addEventListener('DOMContentLoaded', renderResultado);

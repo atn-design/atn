@@ -37,7 +37,7 @@ async function sendEmail(to: string, subject: string, html: string) {
   });
 
   try {
-    await client.send({ from: `Team Top Nutrition <${GMAIL_ADDRESS}>`, to, subject, html });
+    await client.send({ from: `Team Top Nutrition <${GMAIL_ADDRESS}>`, to, subject, content: 'auto', html });
   } catch (err) {
     console.error(`Error enviando correo a ${to}:`, err);
   } finally {

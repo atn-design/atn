@@ -77,21 +77,283 @@
           </button>
         </div>
       </div>
+    </div>
 
-      <!-- UPSELL: Nutrición Funcional / FuXion, visible sin importar cuál fue el resultado -->
-      <div class="mt-8 rounded-3xl border-2 border-brand-fuxionBlue relative overflow-hidden">
-        <div class="absolute inset-0">
-          <img src="assets/img/fuxion-logo.jpg" alt="" class="w-full h-full object-cover opacity-50">
-          <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
+    <!-- BLOQUE ENRIQUECIDO: Reset Metabólico 7 Días (página de ventas completa) -->
+    <div id="resultado-reset7d" class="hidden max-w-5xl mx-auto relative z-10 space-y-16">
+
+      <!-- HERO -->
+      <div class="glass-card rounded-3xl border border-brand-yellow/30 overflow-hidden">
+        <div class="grid md:grid-cols-2">
+          <div class="h-64 md:h-auto overflow-hidden">
+            <img src="assets/img/reset-7d.jpg" alt="Reset Metabólico 7 Días" class="w-full h-full object-cover">
+          </div>
+          <div class="p-8 sm:p-10 flex flex-col justify-center">
+            <span class="inline-block bg-brand-yellow text-black font-black text-xs px-3 py-1 rounded uppercase mb-4 w-fit">Tu punto de partida recomendado</span>
+            <h1 class="font-title text-4xl sm:text-5xl uppercase leading-tight">Dale un Respiro a tu Cuerpo</h1>
+            <p class="text-gray-300 text-sm sm:text-base mt-4 leading-relaxed">
+              7 días para desinflamarte, activar tu metabolismo y recordar que no es que te falte motivación — es que tu energía está bloqueada por toxinas acumuladas.
+            </p>
+            <div class="flex items-baseline gap-2 mt-6">
+              <span class="text-3xl font-black text-brand-yellow">$38</span>
+              <span class="text-xs font-bold text-gray-400 uppercase">USD · Pago único</span>
+            </div>
+            <button onclick="openModal('Reset Metabólico 7 Días')" class="mt-3 bg-brand-yellow text-black font-black uppercase text-base px-8 py-4 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3 w-fit">
+              <span>Sí, Quiero mi Reset Metabólico 7D</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
-        <div class="relative z-10 p-6 sm:p-8 text-center">
-          <div class="inline-block bg-brand-fuxionBlue text-white font-black text-xs px-3 py-1 rounded uppercase mb-2">Nutrición Funcional</div>
-          <h3 class="font-title text-2xl sm:text-3xl uppercase text-white">Potencia tu plan con <span class="text-brand-fuxionBlue">FuXion</span></h3>
-          <a href="https://ifuxion.com/teamtopnutrition/enrollment/products" target="_blank" rel="noopener" class="mt-4 bg-brand-fuxionBlue text-white font-black uppercase text-sm px-6 py-3 rounded-xl hover:bg-brand-fuxionBlueDark transition-all inline-flex items-center gap-2">
-            <span>Ir a la Tienda</span>
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 p-6 sm:p-8 border-t border-gray-800/60">
+          <div class="text-center">
+            <i class="fa-solid fa-weight-scale text-brand-yellow text-xl mb-1"></i>
+            <p class="text-xs font-bold text-gray-200">- Inflamación</p>
+            <p class="text-[10px] text-gray-400">Abdomen plano y ligero</p>
+          </div>
+          <div class="text-center">
+            <i class="fa-solid fa-bolt text-brand-yellow text-xl mb-1"></i>
+            <p class="text-xs font-bold text-gray-200">+ Energía</p>
+            <p class="text-[10px] text-gray-400">Despierta con vitalidad real</p>
+          </div>
+          <div class="text-center">
+            <i class="fa-solid fa-brain text-brand-yellow text-xl mb-1"></i>
+            <p class="text-xs font-bold text-gray-200">Mente Clara</p>
+            <p class="text-[10px] text-gray-400">Adiós niebla mental</p>
+          </div>
+          <div class="text-center">
+            <i class="fa-solid fa-leaf text-brand-yellow text-xl mb-1"></i>
+            <p class="text-xs font-bold text-gray-200">Higiene Interna</p>
+            <p class="text-[10px] text-gray-400">Hígado y colon limpios</p>
+          </div>
         </div>
+      </div>
+
+      <!-- REALISMO EXTREMO / HISTORIA -->
+      <div class="grid md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-5">
+          <div class="rounded-3xl overflow-hidden border-2 border-brand-yellow/30 h-64 md:h-full">
+            <img src="assets/img/andrea-squat.jpg" alt="Andrea, Team Top Nutrition" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <div class="md:col-span-7 space-y-4">
+          <span class="text-brand-yellow font-bold uppercase text-xs tracking-widest">Por eso no te vendo perfección</span>
+          <h2 class="font-title text-3xl sm:text-4xl uppercase leading-tight">Te comparto mi <span class="text-brand-yellow">Realismo Extremo</span></h2>
+          <p class="text-lg font-semibold text-white italic border-l-4 border-brand-yellow pl-4">
+            "Sé exactamente qué es el caos. Sé lo que es despertar cansada antes de que empiece el día y decir 'empiezo el lunes', sintiendo que no te queda ni un gramo de energía."
+          </p>
+          <p class="text-gray-300 text-sm leading-relaxed">
+            El Reset Metabólico 7D no es un castigo ni una dieta restrictiva de hambre. Es un protocolo diseñado para que mujeres reales con agendas saturadas limpien sus órganos emuntorios (colon, hígado y riñones) de manera práctica y sin complicaciones. Porque sí... mereces sentirte bien. Mereces recuperar tu vitalidad para ti y para tu familia.
+          </p>
+          <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-800">
+            <div><span class="block text-2xl font-black text-brand-yellow">1%</span><span class="text-[11px] text-gray-400">Mejor cada día</span></div>
+            <div><span class="block text-2xl font-black text-brand-yellow">7 Días</span><span class="text-[11px] text-gray-400">Para desbloquear tu metabolismo</span></div>
+            <div><span class="block text-2xl font-black text-brand-yellow">0%</span><span class="text-[11px] text-gray-400">Restricciones imposibles</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- QUÉ TE LLEVAS -->
+      <div>
+        <div class="text-center mb-8">
+          <h2 class="font-title text-3xl sm:text-4xl uppercase">¿Qué te llevas con el Reset Metabólico 7 Días?</h2>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5 flex items-start gap-3">
+            <i class="fa-solid fa-file-pdf text-brand-yellow text-lg mt-0.5"></i>
+            <div>
+              <p class="font-bold text-sm">Guía Digital Completa Reset 7D</p>
+              <p class="text-xs text-gray-400 mt-1">Plan alimenticio día por día, recetas paso a paso, batidos y guía de entrenamiento en casa.</p>
+            </div>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5 flex items-start gap-3">
+            <i class="fa-solid fa-list-check text-brand-yellow text-lg mt-0.5"></i>
+            <div>
+              <p class="font-bold text-sm">Lista de Compras Inteligente</p>
+              <p class="text-xs text-gray-400 mt-1">La lista exacta de frutas, verduras y proteínas optimizadas — sin perder tiempo pensando qué comprar.</p>
+            </div>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5 flex items-start gap-3">
+            <i class="fa-brands fa-whatsapp text-brand-yellow text-lg mt-0.5"></i>
+            <div>
+              <p class="font-bold text-sm">Acompañamiento Uno a Uno</p>
+              <p class="text-xs text-gray-400 mt-1">Chat directo conmigo para resolver tus dudas de inmediato, motivarte y mantener la constancia.</p>
+            </div>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5 flex items-start gap-3">
+            <i class="fa-solid fa-flask text-brand-yellow text-lg mt-0.5"></i>
+            <div>
+              <p class="font-bold text-sm">Nutracéuticos FuXion</p>
+              <p class="text-xs text-gray-400 mt-1">Pack de bebidas nutracéuticas de alta absorción biológica, recomendadas para potenciar tu depuración.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LÍNEA NUTRACÉUTICA FUXION -->
+      <div>
+        <div class="text-center max-w-2xl mx-auto mb-8">
+          <span class="text-brand-fuxionBlue font-bold uppercase text-xs tracking-widest">Soporte Nutracéutico FuXion</span>
+          <h2 class="font-title text-3xl sm:text-4xl uppercase mt-2">Absorción Biológica Inmediata</h2>
+          <p class="text-gray-400 text-sm mt-3">Línea de limpieza FuXion sugerida para que la desintoxicación ocurra de verdad, con nutrientes específicos de tecnología de absorción inmediata.</p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-amber-500/15 text-amber-400 text-[10px] font-extrabold rounded-full uppercase">Limpieza de Colon</span>
+              <i class="fa-solid fa-mug-hot text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">PRUNEX 1</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">Té de Guindón y Muey</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Estimula el tránsito intestinal de forma natural, liberándote de años de residuos acumulados y combatiendo el estreñimiento crónico.</p>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-emerald-500/15 text-emerald-400 text-[10px] font-extrabold rounded-full uppercase">Flora Intestinal</span>
+              <i class="fa-solid fa-vial text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">FLORALIV</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">10 mil millones de probióticos</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Reconstruye la flora intestinal dañada, reduce la hinchazón abdominal por gases y optimiza la asimilación de nutrientes.</p>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-blue-500/15 text-blue-400 text-[10px] font-extrabold rounded-full uppercase">Digestión Rápida</span>
+              <i class="fa-solid fa-bottle-water text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">LIQUID FIBER</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">Fibra prebiótica soluble</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Promueve el ritmo digestivo regular, mejora la digestión de grasas y carbohidratos, y previene picos de glucosa.</p>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-purple-500/15 text-purple-400 text-[10px] font-extrabold rounded-full uppercase">Vías Urinarias</span>
+              <i class="fa-solid fa-glass-water text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">BERRYBALANCE</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">Cranberry y concentrado de berries</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Mantiene saludables tus vías urinarias, evita la retención de líquidos y ayuda a evacuar toxinas filtradas por tus riñones.</p>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-red-500/15 text-red-400 text-[10px] font-extrabold rounded-full uppercase">Desintoxicación Hepática</span>
+              <i class="fa-solid fa-flask-vial text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">REXET</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">Alcachofa, perejil y clorofila</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Formulado para depurar y proteger el hígado, estimula la eliminación de grasa acumulada y mejora el metabolismo celular.</p>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl p-5">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-2.5 py-1 bg-emerald-500/15 text-emerald-300 text-[10px] font-extrabold rounded-full uppercase">Alcalinización</span>
+              <i class="fa-solid fa-seedling text-brand-yellow"></i>
+            </div>
+            <h3 class="font-bold text-white">ALPHABALANCE</h3>
+            <p class="text-[11px] font-semibold text-gray-500 mb-2">Alfalfa, espirulina y manzana verde</p>
+            <p class="text-xs text-gray-400 leading-relaxed">Alcaliniza tu organismo, ayuda a equilibrar el pH interno y elimina metales pesados para devolver luminosidad a tu piel.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TESTIMONIOS -->
+      <div>
+        <div class="text-center mb-8">
+          <h2 class="font-title text-3xl sm:text-4xl uppercase">Cambios que se Ven desde las Primeras 72 Horas</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+            <img src="assets/img/testimonio-3.jpg" alt="Testimonio de Pauli, 34 años, Chile" class="testimonial-photo">
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+                "Cambios notables en el aspecto de la piel y la desinflamación del cuerpo en tan solo 7 días, al inicio de mi transformación."
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Pauli, 34 años — Chile</div>
+            </div>
+          </div>
+          <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+            <img src="assets/img/testimonio-4.jpg" alt="Testimonio: cambios en 5 días" class="testimonial-photo">
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+                "Cambios visibles en solo 5 días con el protocolo de desinflamación. No es un detox cualquiera."
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Reset en 5 días</div>
+            </div>
+          </div>
+          <div class="bg-brand-cardBg rounded-2xl border border-gray-800 overflow-hidden flex flex-col">
+            <img src="assets/img/testimonio-1.jpg" alt="Testimonio de Karina, 42 años, Uruguay" class="testimonial-photo">
+            <div class="p-5 flex flex-col flex-1">
+              <p class="text-gray-300 text-sm italic leading-relaxed flex-1">
+                "-32kg y una recomposición corporal hermosa. Todo empezó dándole un respiro real a mi cuerpo."
+              </p>
+              <div class="mt-4 pt-3 border-t border-gray-800/60 text-xs text-brand-yellow font-bold uppercase">Karina, 42 años — Uruguay</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div>
+        <div class="text-center mb-8">
+          <h2 class="font-title text-3xl sm:text-4xl uppercase">Preguntas Frecuentes</h2>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+              <span>¿Pasaré hambre durante estos 7 días?</span>
+              <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+              No. El Reset Metabólico 7D no es un ayuno extremo ni una dieta de privación. Se trata de darle a tu cuerpo alimentos funcionales ricos en nutrientes y apoyar tus órganos de limpieza (colon, hígado y riñones).
+            </div>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+              <span>No tengo tiempo para cocinar ni entrenar horas, ¿aun así funciona?</span>
+              <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+              Está diseñado justo para mujeres con agendas saturadas. Te doy una lista de compras rápida e ingredientes simples que se preparan en minutos, y ejercicios que puedes hacer en casa sin equipamiento.
+            </div>
+          </div>
+          <div class="bg-brand-cardBg border border-gray-800 rounded-xl overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full text-left p-5 font-bold text-base flex items-center justify-between hover:text-brand-yellow transition-colors">
+              <span>¿Son obligatorios los nutracéuticos FuXion?</span>
+              <i class="fa-solid fa-chevron-down text-brand-yellow transition-transform duration-300"></i>
+            </button>
+            <div class="faq-answer hidden p-5 pt-0 text-sm text-gray-300 leading-relaxed border-t border-gray-800/50">
+              No son obligatorios, pero son el potenciador clave para limpiar el colon y el hígado desde el día 1 con absorción directa. En el programa te explico cómo combinarlos para acelerar la desinflamación.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA FINAL -->
+      <div class="text-center">
+        <div class="flex items-baseline justify-center gap-2 mb-4">
+          <span class="text-4xl font-black text-brand-yellow">$38</span>
+          <span class="text-xs font-bold text-gray-400 uppercase">USD · Pago único</span>
+        </div>
+        <button onclick="openModal('Reset Metabólico 7 Días')" class="bg-brand-yellow text-black font-black uppercase text-base px-10 py-5 rounded-xl hover:bg-brand-hoverYellow transition-all transform hover:scale-105 shadow-xl shadow-brand-yellow/20 inline-flex items-center gap-3">
+          <span>Sí, Quiero mi Reset Metabólico 7D</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <p class="text-xs text-gray-500 mt-3">Inversión única en tu bienestar. Sin letra chica ni suscripciones sorpresa.</p>
+      </div>
+
+    </div>
+
+    <!-- UPSELL: Nutrición Funcional / FuXion, compartido entre reset-7d, pérdida de peso y recomposición -->
+    <div id="resultado-fuxion-box" class="hidden max-w-4xl mx-auto mt-8 relative z-10 rounded-3xl border-2 border-brand-fuxionBlue overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="assets/img/fuxion-logo.jpg" alt="" class="w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/80 to-transparent"></div>
+      </div>
+      <div class="relative z-10 p-6 sm:p-8 text-center">
+        <div class="inline-block bg-brand-fuxionBlue text-white font-black text-xs px-3 py-1 rounded uppercase mb-2">Nutrición Funcional</div>
+        <h3 class="font-title text-2xl sm:text-3xl uppercase text-white">Potencia tu plan con <span class="text-brand-fuxionBlue">FuXion</span></h3>
+        <a href="https://ifuxion.com/teamtopnutrition/enrollment/products" target="_blank" rel="noopener" class="mt-4 bg-brand-fuxionBlue text-white font-black uppercase text-sm px-6 py-3 rounded-xl hover:bg-brand-fuxionBlueDark transition-all inline-flex items-center gap-2">
+          <span>Ir a la Tienda</span>
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       </div>
     </div>
 
