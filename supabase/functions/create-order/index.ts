@@ -18,7 +18,7 @@ const GMAIL_ADDRESS = 'soporte.wattaia@gmail.com';
 // Por ahora es la misma cuenta que envía — se puede separar el día que Andrea tenga la suya.
 const NOTIFICATION_EMAIL = 'soporte.wattaia@gmail.com';
 // TODO: actualizar si el sitio se muda a un dominio propio.
-const SITE_URL = 'https://atn-desing.github.io/atn';
+const SITE_URL = 'https://atn-design.github.io/atn';
 
 async function sendEmail(to: string, subject: string, html: string) {
   const appPassword = Deno.env.get('GMAIL_APP_PASSWORD');
