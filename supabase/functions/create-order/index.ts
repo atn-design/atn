@@ -64,15 +64,20 @@ function sendEbookEmail(toEmail: string, toName: string) {
 }
 
 function sendNotificationEmail(kind: 'compra' | 'waitlist', planName: string, customerName: string, whatsapp: string, email: string) {
+  // El asunto va sin emoji: los caracteres especiales en el header "Subject" necesitan una
+  // codificación (RFC 2047) que la librería de correo no aplica bien, y llegaba como código ilegible.
   const subject = kind === 'compra'
-    ? `🛒 Nueva inscripción: ${planName}`
-    : `🔔 Nueva anotación en lista de espera: ${planName}`;
+    ? `Nueva inscripcion: ${planName}`
+    : `Nueva anotacion en lista de espera: ${planName}`;
+  const tipoLabel = kind === 'compra'
+    ? '🛒 Compra / Inscripción (Plan 1)'
+    : '🔔 Lista de espera (próximo lanzamiento)';
   return sendEmail(
     NOTIFICATION_EMAIL,
     subject,
     `
       <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #111;">
-        <h2>${subject}</h2>
+        <p style="font-size:18px; font-weight:bold; margin-bottom:16px;">${tipoLabel}</p>
         <p><strong>Nombre:</strong> ${customerName}</p>
         <p><strong>WhatsApp:</strong> ${whatsapp}</p>
         <p><strong>Correo:</strong> ${email || '(no dejó correo)'}</p>
