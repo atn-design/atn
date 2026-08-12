@@ -1,4 +1,4 @@
-/* Team Top Nutrition — estilos complementarios a Tailwind (via CDN) */
+/* Andrea Top Nutrition — estilos complementarios a Tailwind (via CDN) */
 
 .bg-grid-pattern {
   background-image: radial-gradient(rgba(236, 239, 0, 0.08) 1px, transparent 1px);
@@ -15,12 +15,10 @@
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Logo dentro del navbar oscuro: el archivo original tiene fondo blanco,
-   así que se recorta a un chip redondeado en vez de dejar el cuadro blanco suelto. */
+/* Logo dentro del navbar oscuro: el archivo tiene fondo negro, así que se
+   recorta a un chip circular sin padding para que llene todo el espacio. */
 .logo-chip {
-  background: #fff;
   border-radius: 9999px;
-  padding: 4px;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -33,12 +31,14 @@
   border-radius: 9999px;
 }
 
-/* Fotos de testimonios: mantener proporción consistente en la grid */
+/* Fotos de testimonios: se muestran completas (sin recortar), dentro de
+   un marco de altura pareja entre las 4 tarjetas (contain, no cover). */
 .testimonial-photo {
   width: 100%;
-  height: 18rem;
-  object-fit: cover;
-  object-position: top center;
+  height: 20rem;
+  object-fit: contain;
+  background: #0B0B0D;
+  display: block;
 }
 
 /* Botón flotante de WhatsApp con pulso sutil para llamar la atención sin ser invasivo */

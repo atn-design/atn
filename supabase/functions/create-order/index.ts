@@ -1,4 +1,4 @@
-// Team Top Nutrition — Edge Function: create-order (Fase 1, sin pagos todavía)
+// Andrea Top Nutrition — Edge Function: create-order (Fase 1, sin pagos todavía)
 // Recibe los datos del modal de inscripción, guarda cliente + orden en Supabase,
 // y (solo para el Protocolo Gratis) manda el ebook por correo automático vía Gmail SMTP.
 // Deploy: supabase functions deploy create-order
@@ -37,7 +37,7 @@ async function sendEmail(to: string, subject: string, html: string) {
   });
 
   try {
-    await client.send({ from: `Team Top Nutrition <${GMAIL_ADDRESS}>`, to, subject, content: 'auto', html });
+    await client.send({ from: `Andrea Top Nutrition <${GMAIL_ADDRESS}>`, to, subject, content: 'auto', html });
   } catch (err) {
     console.error(`Error enviando correo a ${to}:`, err);
   } finally {
@@ -57,7 +57,7 @@ function sendEbookEmail(toEmail: string, toName: string) {
           <a href="${SITE_URL}/ebook.html" style="background:#ECEF00; color:#000; font-weight:bold; text-decoration:none; padding:14px 28px; border-radius:10px; display:inline-block;">Abrir mi Protocolo</a>
         </p>
         <p>Cualquier duda, escríbeme directo por WhatsApp — con gusto te acompaño.</p>
-        <p>— Andrea, Team Top Nutrition</p>
+        <p>— Andrea, Andrea Top Nutrition</p>
       </div>
     `,
   );

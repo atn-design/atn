@@ -1,4 +1,4 @@
-// Team Top Nutrition — página de resultado del Diagnóstico Vitalidad 360
+// Andrea Top Nutrition — página de resultado del Diagnóstico Vitalidad 360
 // Lee ?plan= (calculado por js/diagnostico.js) y muestra el bloque correspondiente.
 // Reutiliza openModal()/buildWaLink() de main.js. Si viene ?email=, precarga el campo del modal.
 
@@ -20,10 +20,10 @@ const RESULT_PLANS = {
   },
   recomposicion: {
     badge: 'Tu punto de partida recomendado · Próximamente',
-    title: 'Vitalidad Constante y Autonomía (90 Días)',
+    title: 'Vitalidad Constante (90 Días)',
     desc: 'Tu diagnóstico muestra que ya tienes una base activa y buenos hábitos. Ahora toca consolidar tu vitalidad a largo plazo, eliminar el efecto rebote para siempre y abrir la puerta a tu independencia — este programa está por lanzarse. Anótate y te avisamos apenas esté disponible.',
     img: 'assets/img/abdomen.jpg',
-    modalPlan: 'Vitalidad Constante y Autonomía (90 Días)',
+    modalPlan: 'Vitalidad Constante (90 Días)',
     comingSoon: true,
   },
 };

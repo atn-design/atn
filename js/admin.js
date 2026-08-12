@@ -1,4 +1,4 @@
-// Team Top Nutrition — Panel de administración (Fase 1)
+// Andrea Top Nutrition — Panel de administración (Fase 1)
 // Login con Supabase Auth + tabla de clientes/órdenes, protegida por Row Level Security.
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';

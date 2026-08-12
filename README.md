@@ -1,4 +1,4 @@
-# Team Top Nutrition — Landing Page
+# Andrea Top Nutrition — Landing Page
 
 Landing page estática (HTML/CSS/JS, sin build) para la marca de Andrea. Todo el flujo de conversión sigue terminando en WhatsApp, pero desde la Fase 1 del backend (ver sección dedicada abajo) cada lead/orden también queda registrado en una base de datos real (Supabase), visible en un panel propio (`admin.html`).
 
@@ -64,7 +64,7 @@ El diagnóstico con puntaje (antes la 2da encuesta de Tally) ahora es **nativo e
 
 | Puntaje total | Plan recomendado | `resultado.html?plan=` |
 |---|---|---|
-| ≤ 4 | Vitalidad Constante y Autonomía (90 Días) | `recomposicion` |
+| ≤ 4 | Vitalidad Constante (90 Días) | `recomposicion` |
 | 5–7 | Transformación Integral (45 Días) | `perdida-peso` |
 | ≥ 8 | Reset Metabólico 7 Días | `reset-7d` |
 
@@ -98,7 +98,7 @@ Arquitectura elegida: **Supabase** (Postgres + Auth + Edge Functions) como únic
 - Esta llamada **nunca bloquea ni rompe el flujo de WhatsApp**: se hace sin esperar su resultado (fire-and-forget) y cualquier error se ignora silenciosamente (solo se loguea en la consola del navegador para depurar).
 - `admin.html` es un panel protegido por login (Supabase Auth) donde Andrea ve la lista de clientes/órdenes con su estado, filtrable por estado (incluye "Lista de espera").
 
-### "Próximamente" (Transformación Integral 45D y Vitalidad Constante y Autonomía 90D)
+### "Próximamente" (Transformación Integral 45D y Vitalidad Constante 90D)
 
 Estos 2 programas todavía no están lanzados. Sus tarjetas en `#programas` (`index.html`) muestran un badge "Próximamente" y su botón ("Avísame al Lanzamiento") abre el mismo modal de inscripción pero en **modo lista de espera** (`openWaitlistModal()` en `js/main.js`): cambia el título del modal, el mensaje de WhatsApp ("quiero que me avises cuando esté disponible") y la orden se guarda con `status='waitlist'` en vez de `pending`. Lo mismo aplica si el diagnóstico (`diagnostico.html`) recomienda uno de estos 2 planes — `resultado.html` también muestra el tratamiento de "Próximamente" (`js/resultado.js`, flag `comingSoon`). El Reset Metabólico 7 Días es, por ahora, el único programa con inscripción real.
 

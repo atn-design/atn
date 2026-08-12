@@ -1,4 +1,4 @@
--- Team Top Nutrition — Esquema Fase 1 (base de datos de clientes, sin pagos todavía)
+-- Andrea Top Nutrition — Esquema Fase 1 (base de datos de clientes, sin pagos todavía)
 -- Correr esto completo en Supabase → SQL Editor, una sola vez, sobre un proyecto nuevo.
 --
 -- Si esto se corre sobre una base de datos que YA tiene la tabla `orders` creada
@@ -62,7 +62,7 @@ create table if not exists payment_events (
 insert into plans (code, name, price_clp, price_usd, is_free) values
   ('reset-7d',        'Reset Metabólico 7 Días',                          null, null, false),
   ('perdida-peso',    'Transformación Integral (45 Días)',                null, null, false),
-  ('recomposicion',   'Vitalidad Constante y Autonomía (90 Días)',        null, null, false),
+  ('recomposicion',   'Vitalidad Constante (90 Días)',        null, null, false),
   ('protocolo-gratis','Protocolo de Desinflamación Express 72h (GRATIS)', 0,    0,    true)
 on conflict (code) do update set name = excluded.name;
 

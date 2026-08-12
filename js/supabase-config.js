@@ -1,4 +1,4 @@
-// Team Top Nutrition — configuración de Supabase (Fase 1)
+// Andrea Top Nutrition — configuración de Supabase (Fase 1)
 // TODO: reemplazar con los valores reales de tu proyecto (Supabase → Project Settings → API).
 // SUPABASE_ANON_KEY es pública por diseño (se usa en el navegador); NUNCA pongas aquí la service_role key.
 

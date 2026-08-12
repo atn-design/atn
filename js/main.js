@@ -1,4 +1,4 @@
-// Team Top Nutrition — navegación, modal de inscripción y FAQ
+// Andrea Top Nutrition — navegación, modal de inscripción y FAQ
 // Todo el flujo de conversión pasa por WhatsApp: no hay backend, no hay carrito.
 
 const WHATSAPP_NUMBER = '56945925331'; // Teléfono real de Andrea (Chile)
@@ -8,7 +8,7 @@ const FREE_PROTOCOL_PLAN_NAME = 'Protocolo de Desinflamación Express 72h (GRATI
 const PLAN_CODES = {
   'Reset Metabólico 7 Días': 'reset-7d',
   'Transformación Integral (45 Días)': 'perdida-peso',
-  'Vitalidad Constante y Autonomía (90 Días)': 'recomposicion',
+  'Vitalidad Constante (90 Días)': 'recomposicion',
   [FREE_PROTOCOL_PLAN_NAME]: 'protocolo-gratis',
 };
 

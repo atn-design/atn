@@ -1,4 +1,4 @@
-// Team Top Nutrition — Diagnóstico Vitalidad 360 (quiz nativo, sin Tally)
+// Andrea Top Nutrition — Diagnóstico Vitalidad 360 (quiz nativo, sin Tally)
 // Preguntas y puntajes reales provistos por Andrea. Rango de puntaje total: 2–10.
 // Mapeo confirmado: <=4 recomposicion | 5-7 perdida-peso | >=8 reset-7d
 
