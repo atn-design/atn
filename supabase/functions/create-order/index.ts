@@ -20,6 +20,16 @@ const NOTIFICATION_EMAIL = 'soporte.wattaia@gmail.com';
 // TODO: actualizar si el sitio se muda a un dominio propio.
 const SITE_URL = 'https://atn-design.github.io/atn';
 
+// El header "Subject" necesita codificación especial (RFC 2047) para tildes/ñ/emoji,
+// y la librería de correo no la aplica de forma confiable en asuntos largos — llegaba
+// como código ilegible. Más seguro: el asunto siempre va en ASCII plano (sin acentos).
+function toPlainAscii(text: string) {
+  return text
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[^\x00-\x7F]/g, '');
+}
+
 async function sendEmail(to: string, subject: string, html: string) {
   const appPassword = Deno.env.get('GMAIL_APP_PASSWORD');
   if (!appPassword) {
@@ -48,7 +58,7 @@ async function sendEmail(to: string, subject: string, html: string) {
 function sendEbookEmail(toEmail: string, toName: string) {
   return sendEmail(
     toEmail,
-    'Tu Protocolo de Desinflamación Express (72h) 🌿',
+    toPlainAscii('Tu Protocolo de Desinflamacion Express (72h)'),
     `
       <div style="font-family: Arial, sans-serif; max-width: 480px; margin: 0 auto; color: #111;">
         <h2 style="color:#0B0B0D;">Hola ${toName || ''} 👋</h2>
@@ -64,11 +74,9 @@ function sendEbookEmail(toEmail: string, toName: string) {
 }
 
 function sendNotificationEmail(kind: 'compra' | 'waitlist', planName: string, customerName: string, whatsapp: string, email: string) {
-  // El asunto va sin emoji: los caracteres especiales en el header "Subject" necesitan una
-  // codificación (RFC 2047) que la librería de correo no aplica bien, y llegaba como código ilegible.
   const subject = kind === 'compra'
-    ? `Nueva inscripcion: ${planName}`
-    : `Nueva anotacion en lista de espera: ${planName}`;
+    ? toPlainAscii(`Nueva inscripcion: ${planName}`)
+    : toPlainAscii(`Nueva anotacion en lista de espera: ${planName}`);
   const tipoLabel = kind === 'compra'
     ? '🛒 Compra / Inscripción (Plan 1)'
     : '🔔 Lista de espera (próximo lanzamiento)';
