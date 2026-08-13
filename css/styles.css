@@ -1,12 +1,12 @@
 /* Andrea Top Nutrition — estilos complementarios a Tailwind (via CDN) */
 
 .bg-grid-pattern {
-  background-image: radial-gradient(rgba(236, 239, 0, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(252, 198, 1, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
 .text-glow {
-  text-shadow: 0 0 20px rgba(236, 239, 0, 0.35);
+  text-shadow: 0 0 20px rgba(252, 198, 1, 0.35);
 }
 
 .glass-card {
