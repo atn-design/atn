@@ -44,7 +44,7 @@ function registerOrder({ plan, nombre, email, whatsapp, isWaitlist }) {
   }).catch((err) => console.warn('No se pudo registrar el lead en Supabase:', err));
 }
 
-// Menú móvil (algunas páginas, como diagnostico.html/resultado.html, no lo tienen)
+// Menú móvil (algunas páginas, como ebook.html/admin.html, no lo tienen)
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 if (mobileMenuBtn && mobileMenu) {
