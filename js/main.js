@@ -9,8 +9,15 @@ const PLAN_CODES = {
   'Reset Metabólico 7 Días': 'reset-7d',
   'Transformación Integral (45 Días)': 'perdida-peso',
   'Vitalidad Constante (90 Días)': 'recomposicion',
+  'Combo Transforma + Consolida (Reset 7D de regalo)': 'combo-t2-t3',
+  'Evaluación Metabólica Estratégica': 'evaluacion-1a1',
   [FREE_PROTOCOL_PLAN_NAME]: 'protocolo-gratis',
 };
+
+// Planes con pago real vía PayPal (Fase 2, Sandbox). Todos los planes pagos van directo
+// al pago; solo el Protocolo Gratis (correo) y los planes "Próximamente" (lista de espera,
+// si volviera a haber alguno) quedan fuera de este flujo.
+const PAYPAL_PLAN_CODES = new Set(['reset-7d', 'perdida-peso', 'recomposicion', 'combo-t2-t3', 'evaluacion-1a1']);
 
 function buildWaLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -44,6 +51,43 @@ function registerOrder({ plan, nombre, email, whatsapp, isWaitlist }) {
   }).catch((err) => console.warn('No se pudo registrar el lead en Supabase:', err));
 }
 
+// Crea la orden en Supabase + PayPal (server-side) y devuelve el paypal_order_id
+// que el botón de PayPal necesita para completar el pago.
+async function createPaypalOrderRemote({ planCode, nombre, email, whatsapp }) {
+  const res = await fetch(CREATE_PAYPAL_ORDER_FUNCTION_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      apikey: SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify({ nombre, email, whatsapp, plan_code: planCode }),
+  });
+  const data = await res.json();
+  if (!res.ok || !data.paypal_order_id) {
+    throw new Error(data.error || 'No se pudo crear la orden de PayPal');
+  }
+  return data.paypal_order_id;
+}
+
+// Confirma en el servidor que PayPal ya capturó el pago (nunca confiar en el navegador para esto).
+async function capturePaypalOrderRemote(paypalOrderId) {
+  const res = await fetch(CAPTURE_PAYPAL_ORDER_FUNCTION_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      apikey: SUPABASE_ANON_KEY,
+    },
+    body: JSON.stringify({ paypal_order_id: paypalOrderId }),
+  });
+  const data = await res.json();
+  if (!res.ok || data.status !== 'paid') {
+    throw new Error(data.error || 'PayPal no confirmó el pago');
+  }
+  return data;
+}
+
 // Menú móvil (algunas páginas, como ebook.html/admin.html, no lo tienen)
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -61,13 +105,23 @@ let isWaitlistMode = false;
 function showModalFormView() {
   document.getElementById('modal-form-view').classList.remove('hidden');
   document.getElementById('modal-success-view').classList.add('hidden');
+  resetPaypalSection();
+}
+
+// Vuelve a mostrar el formulario y esconde el botón de PayPal (si había uno renderizado
+// de un intento anterior) — evita que queden dos botones de PayPal apilados.
+function resetPaypalSection() {
+  document.getElementById('modal-paypal-section').classList.add('hidden');
+  document.getElementById('modal-paypal-error').classList.add('hidden');
+  document.getElementById('paypal-button-container').innerHTML = '';
+  document.querySelector('#modal-form-view form').classList.remove('hidden');
 }
 
 function openModal(planName) {
   isWaitlistMode = false;
   showModalFormView();
   document.getElementById('modal-heading').textContent = 'Quiero Inscribirme';
-  document.getElementById('modal-submit-btn').textContent = 'Confirmar y Continuar a WhatsApp';
+  document.getElementById('modal-submit-btn').textContent = 'Confirmar y Continuar al Pago';
   document.getElementById('modal-plan-title').textContent = planName;
   document.getElementById('checkout-modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
@@ -105,8 +159,14 @@ function handleFormSubmit(event) {
   const whatsapp = form.querySelector('[name="whatsapp"]').value.trim();
   const isFreeProtocol = plan === FREE_PROTOCOL_PLAN_NAME;
   const wasWaitlist = isWaitlistMode;
+  const planCode = PLAN_CODES[plan];
+  const isPaypalPlan = !wasWaitlist && !isFreeProtocol && planCode && PAYPAL_PLAN_CODES.has(planCode);
 
-  registerOrder({ plan, nombre: name, email, whatsapp, isWaitlist: wasWaitlist });
+  // Para los planes de PayPal, la orden se crea del lado del servidor recién al mostrar
+  // el botón (createPaypalOrderRemote) — no hay que duplicarla acá con registerOrder.
+  if (!isPaypalPlan) {
+    registerOrder({ plan, nombre: name, email, whatsapp, isWaitlist: wasWaitlist });
+  }
   form.reset();
 
   if (wasWaitlist) {
@@ -126,6 +186,50 @@ function handleFormSubmit(event) {
       title: '¡Revisa tu correo!',
       desc: `Te enviamos tu Protocolo de Desinflamación Express (72h) a ${email}.`,
     });
+    return;
+  }
+
+  if (isPaypalPlan) {
+    // Pago real: se esconde el formulario y se muestra el botón de PayPal para completar el pago.
+    document.querySelector('#modal-form-view form').classList.add('hidden');
+    const section = document.getElementById('modal-paypal-section');
+    const errorEl = document.getElementById('modal-paypal-error');
+    section.classList.remove('hidden');
+    errorEl.classList.add('hidden');
+
+    let paypalOrderId = null;
+
+    paypal.Buttons({
+      style: { color: 'gold', shape: 'rect', label: 'paypal', height: 45 },
+      createOrder: async () => {
+        try {
+          paypalOrderId = await createPaypalOrderRemote({ planCode, nombre: name, email, whatsapp });
+          return paypalOrderId;
+        } catch (err) {
+          console.error('Error creando la orden de PayPal:', err);
+          errorEl.classList.remove('hidden');
+          throw err;
+        }
+      },
+      onApprove: async () => {
+        try {
+          await capturePaypalOrderRemote(paypalOrderId);
+          showModalSuccess({
+            icon: 'fa-circle-check',
+            title: '¡Pago confirmado!',
+            desc: `Te enviamos la confirmación de ${plan} a ${email || 'tu correo'}. Andrea ya fue notificada y te va a escribir por WhatsApp para arrancar.`,
+          });
+        } catch (err) {
+          console.error('Error capturando el pago de PayPal:', err);
+          errorEl.classList.remove('hidden');
+        }
+      },
+      onError: (err) => {
+        console.error('Error del botón de PayPal:', err);
+        errorEl.classList.remove('hidden');
+      },
+    }).render('#paypal-button-container');
+
     return;
   }
 

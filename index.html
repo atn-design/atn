@@ -675,9 +675,15 @@
           </div>
 
           <button type="submit" id="modal-submit-btn" class="w-full bg-brand-yellow text-black font-black uppercase text-sm py-4 rounded-xl hover:bg-brand-hoverYellow transition-all mt-2">
-            Confirmar y Continuar a WhatsApp
+            Confirmar y Continuar al Pago
           </button>
         </form>
+
+        <div id="modal-paypal-section" class="hidden mt-4">
+          <p class="text-center text-xs text-gray-400 uppercase font-semibold mb-3">Pagar con PayPal (modo prueba · Sandbox)</p>
+          <div id="paypal-button-container"></div>
+          <p id="modal-paypal-error" class="hidden text-center text-xs text-red-400 mt-3">Hubo un problema procesando el pago. Intenta de nuevo.</p>
+        </div>
       </div>
 
       <div id="modal-success-view" class="hidden text-center py-4">
@@ -694,6 +700,8 @@
   </div>
 
   <script src="js/supabase-config.js"></script>
+  <!-- PayPal JS SDK — Client ID de SANDBOX (Fase 2, pruebas). Cambiar por el de Live recién antes de salir a producción real. -->
+  <script src="https://www.paypal.com/sdk/js?client-id=AeYLWl5oM6BRIlkbYa4tryxEk8QQD7G-W1CVy9ZNx0yqlEfSUK0Tc1cUZ9qgk8FhDGrBxfVKf1IL-BRj&currency=USD&intent=capture"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

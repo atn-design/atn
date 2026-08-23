@@ -9,3 +9,7 @@ var SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 // URL de la Edge Function create-order (mismo proyecto, se arma sola a partir de SUPABASE_URL).
 var CREATE_ORDER_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/create-order`;
+
+// URLs de las Edge Functions de PayPal (Fase 2, Sandbox).
+var CREATE_PAYPAL_ORDER_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/paypal-create-order`;
+var CAPTURE_PAYPAL_ORDER_FUNCTION_URL = `${SUPABASE_URL}/functions/v1/paypal-capture-order`;

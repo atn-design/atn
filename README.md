@@ -120,6 +120,17 @@ Estos 2 programas todavía no están lanzados. Sus tarjetas en `#programas` (`in
 
 ✅ **Confirmado funcionando end-to-end** (probado con `curl` directo contra la Edge Function desplegada): se crea el cliente y la orden correctamente en Supabase.
 
+### Mantenimiento: el proyecto se pausa solo en el plan gratis
+
+Supabase pausa automáticamente los proyectos del plan **Free** después de ~7 días sin actividad (queda en estado `INACTIVE`). Mientras está pausado, el sitio sigue andando pero **nada se guarda**: la Edge Function falla en silencio, igual que antes de configurar Supabase. Esto se soluciona con **Upgrade a Pro** (USD $25/mes, elimina la pausa) — recomendado antes de cobrar de verdad (Fase 2/3).
+
+Mientras se siga en el plan gratis, evitar la pausa a mano:
+
+1. Cada **6 días** (poner recordatorio recurrente en el calendario), entrar a supabase.com/dashboard → el proyecto → **SQL Editor**.
+2. Escribir `select 1;` → **Run**. Cualquier consulta real a la base de datos cuenta como actividad y reinicia el contador de 7 días.
+
+Si el proyecto ya está pausado, en la misma pantalla aparece el botón **"Resume project"** (no "Restore") para reactivarlo — tarda 1-2 minutos.
+
 ### Qué sigue (Fases 2 y 3, no incluidas todavía)
 
 - **Fase 2 — PayPal (pagos en USD):** requiere que el usuario cree la cuenta PayPal Business (Chile) primero. Se extiende `create-order` para generar el link de pago (PayPal Orders API) y se agrega un webhook que marca la orden como `paid` cuando PayPal confirma.

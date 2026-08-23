@@ -58,13 +58,15 @@ create table if not exists payment_events (
 );
 
 -- Planes conocidos hoy en el sitio (nombres exactos que usa js/main.js).
--- TODO: completar price_clp / price_usd apenas Andrea defina los precios reales.
+-- Precios en USD confirmados (Fase 2, pago con PayPal); price_clp sigue sin definir (Fase 3, Flow.cl).
 insert into plans (code, name, price_clp, price_usd, is_free) values
-  ('reset-7d',        'Reset Metabólico 7 Días',                          null, null, false),
-  ('perdida-peso',    'Transformación Integral (45 Días)',                null, null, false),
-  ('recomposicion',   'Vitalidad Constante (90 Días)',        null, null, false),
+  ('reset-7d',        'Reset Metabólico 7 Días',                          null, 29, false),
+  ('perdida-peso',    'Transformación Integral (45 Días)',                null, 59, false),
+  ('recomposicion',   'Vitalidad Constante (90 Días)',                    null, 39, false),
+  ('combo-t2-t3',     'Combo Transforma + Consolida (Reset 7D de regalo)',null, 98, false),
+  ('evaluacion-1a1',  'Evaluación Metabólica Estratégica',                null, 49, false),
   ('protocolo-gratis','Protocolo de Desinflamación Express 72h (GRATIS)', 0,    0,    true)
-on conflict (code) do update set name = excluded.name;
+on conflict (code) do update set name = excluded.name, price_usd = excluded.price_usd;
 
 -- Row Level Security: solo la cuenta autenticada de Andrea puede leer.
 -- Las escrituras (crear cliente/orden) solo las hace la Edge Function con la service_role key,
